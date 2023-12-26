@@ -32,12 +32,7 @@ Premièrement, il est impératif d'effectuer une analyse approfondie de la distr
 
 <p align="center">
   <img src="images/target.png" width="400" hspace="20"/>
-  <br>
-  <span style="font-weight: bold;">Première image</span>
-  <br><br>
-  <img src="images/target.png" width="400" hspace="20"/>
-  <br>
-  <span style="font-weight: bold;">Deuxième image</span>
+  <img src="images/target.png" width="400" hspace="20"/> 
 </p>
 
 **METTRE LISTE DES VARIABLES**
