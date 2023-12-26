@@ -32,7 +32,7 @@ Premièrement, il est impératif d'effectuer une analyse approfondie de la distr
 
 <p align="center">
   <img src="target.png" width="400" hspace="20"/>
-  <img src="target.png" width="400" hspace="20"/> 
+  <img src="image.png" width="400" hspace="20"/> 
 </p>
 
 
