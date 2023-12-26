@@ -8,6 +8,12 @@ Cette constatation met en évidence l'ampleur mondiale de la prévalence des mal
 
 **DIRE COMMENT ON VA FAIRE AVEC QUELLE BASE** + dire que c'est USA
 
+<details>
+  <summary>Cliquez pour afficher le texte</summary>
+
+Le texte que vous voulez afficher va ici.
+
+</details>
 
 
 ## Bibliographie
