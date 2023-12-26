@@ -1,6 +1,8 @@
-# Analyse et prédiction des maladies cardiaques
+<p align="center">
+  <b>Analyse et prédiction des maladies cardiaques</b>
+</p>
 
-![](images/cardiac_diseases.jpeg)
+<img src="images/cardiac_diseases.jpeg" width="300">
 
 ## I.Introduction 
 
