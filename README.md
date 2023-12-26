@@ -1,6 +1,6 @@
-<p align="center">
+<h1 align="center">
   <b>Analyse et prédiction des maladies cardiaques</b>
-</p>
+</h1>
 
 <img src="images/cardiac_diseases.jpeg" width="300">
 
