@@ -4,8 +4,10 @@
 
 <img src="images/cardiac_diseases.jpeg" width="300">
 
-BAHL Lou-Ann
-CHATAIGNER Elie
+<p align="center">
+  <b>BAHL Lou-Ann</b><br>
+  <b>CHATAIGNER Elie</b>
+</p>
 
 ## I.Introduction 
 
