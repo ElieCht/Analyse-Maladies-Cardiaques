@@ -2,7 +2,9 @@
   <b>Analyse et prédiction des maladies cardiaques</b>
 </h1>
 
-<img src="images/cardiac_diseases.jpeg" width="300">
+<p align="center">
+  <img src="images/cardiac_diseases.jpeg" width="300">
+</p>
 
 <p align="center">
   <b>BAHL Lou-Ann</b>
