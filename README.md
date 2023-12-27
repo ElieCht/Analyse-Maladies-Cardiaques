@@ -21,6 +21,7 @@ Au cours des deux dernières décennies, les maladies cardiaques ont maintenu le
 Cette constatation met en évidence l'ampleur mondiale de la prévalence des maladies cardiaques et la nécessité impérieuse d'une action coordonnée pour atténuer leur impact dévastateur. En effet, cette réalité globale souligne l'urgence de comprendre et de traiter efficacement ces affections. Ainsi, l'objectif de cette étude est de prévoir ces maladies cardiaques en identifiant les paramètres influents.
 
 **DIRE COMMENT ON VA FAIRE AVEC QUELLE BASE** + dire que c'est USA
+
 ---
 ---
 ## II. Analyse & exploration de la base
@@ -42,6 +43,7 @@ Premièrement, il est impératif d'effectuer une analyse approfondie de la distr
 **METTRE LISTE DES VARIABLES**
 **random forest** ??
 **tester suréchantillonage**
+
 ---
 
 ---
@@ -52,6 +54,7 @@ OMS, Maladies cardiovasculaires, https://www.who.int/fr/news-room/fact-sheets/de
 OMS, Principales causes de mortalité et d’incapacité dans le monde : 2000-2019, https://www.who.int/fr/news/item/09-12-2020-who-reveals-leading-causes-of-death-and-disability-worldwide-2000-2019#:~:text=Les%20maladies%20cardiaques%20sont%20rest%C3%A9es,millions%20de%20d%C3%A9c%C3%A8s%20en%202019.
 
 Statista, Répartition des premières causes de décès aux États-Unis en 2021, https://fr.statista.com/statistiques/564002/premieres-causes-de-deces-aux-etats-unis/#:~:text=Cette%20statistique%20repr%C3%A9sente%20la%20r%C3%A9partition,des%20d%C3%A9c%C3%A8s%20aux%20%C3%89tats%2DUnis.
+
 ---
 
 
