@@ -33,8 +33,9 @@ Afin de réaliser notre analyse, nous avons utilisé le jeu de données "Indicat
 Premièrement, il est impératif d'effectuer une analyse approfondie de la distribution de la variable dépendante. Notre variable dépendante est binaire, prenant la valeur 0 si la personne interrogée n'a pas eu de maladie cardiaque et 1 si elle en a eu une. En examinant la distribution de la variable dépendante (cf. graphique ci-dessous à gauche), on peut identifier un fort déséquilibre. Autrement dit, les classes ne sont pas équilibrées : 8.6% des personnes ont déjà été victimes d'une maladie cardiaque, ce qui signifie que 91.4% des individus n'en ont pas souffert. Ce déséquilibre pourrait avoir un impact significatif sur la performance des modèles, car ils peuvent être biaisés vers la classe majoritaire (en l'occurrence, les personnes n'ayant pas eu de maladie cardiaque). En d'autres termes, le modèle pourrait montrer une préférence à anticiper que la personne interrogée n'a pas eu de maladie cardiaque, simplement parce que la majorité des exemples d'entraînement appartiennent à cette classe. Pour résoudre ce problème de déséquilibre de classes, on peut utiliser le suréchantillonnage (ajout d'instances de la classe minoritaire) et le sous-échantillonnage (réduction d'instances de la classe majoritaire) afin d'assurer une distribution plus équilibrée et d'améliorer la performance du modèle. Dans ce contexte, il peut être préférable d'effectuer un sous-échantillonnage. De plus, les personnes ayant fait une ou des maladies cardiaques présentent probablement des caractéristiques assez spécifiques. La variable cible est alors équitablement répartie (cf. figure ci-dessous à droite). En supprimant aléatoirement des observations de la classe majoritaire, bien que nous en perdions un nombre non négligeable, cela ne pose pas de problème étant donné que nous conservons tout de même 56 746 observations.
 
 
-**Figure 1 :** Répartition de la target avant et après sous-échantillonnage
-
+<div align="center">
+  <b>Figure 1 :</b> Répartition de la target avant et après sous-échantillonnage
+</div>
 <div style="display: flex; justify-content: center;">
   <img src="images/target1.png" width="380" hspace="20"/>
   <img src="images/target2.png" width="430" hspace="20"/> 
