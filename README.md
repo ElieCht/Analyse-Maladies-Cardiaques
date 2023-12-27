@@ -23,7 +23,7 @@ Cette constatation met en évidence l'ampleur mondiale de la prévalence des mal
 **DIRE COMMENT ON VA FAIRE AVEC QUELLE BASE** + dire que c'est USA
 
 ---
----
+
 ## II. Analyse & exploration de la base
 
 Afin de réaliser notre analyse, nous avons utilisé le jeu de données "Indicateurs de maladies cardiaques" présent sur le site Kaggle [disponible ici](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease). Initalement, cette base contient 319 795 observations avec un total de 18 variables. En raison de la taille de ce dataset, il est nécessaire d'effectuer de l'analyser (pour voir si des choses ne vont pas) et de l'explorer (afin de se familiariser avec celui-ci).
@@ -46,7 +46,6 @@ Premièrement, il est impératif d'effectuer une analyse approfondie de la distr
 
 ---
 
----
 ## Bibliographie
 
 OMS, Maladies cardiovasculaires, https://www.who.int/fr/news-room/fact-sheets/detail/cardiovascular-diseases-(cvds)#:~:text=Les%20maladies%20cardiovasculaires%20constituent%20un,sanguins%20qui%20alimentent%20le%20cerveau)
