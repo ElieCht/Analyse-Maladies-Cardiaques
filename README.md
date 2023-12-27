@@ -38,8 +38,8 @@ Premièrement, il est impératif d'effectuer une analyse approfondie de la distr
 </div>
 &nbsp;&nbsp;
 <div style="display: flex; justify-content: center;">
-  <img src="images/target1.png" width="380" hspace="20"/>
-  <img src="images/target2.png" width="430" hspace="20"/> 
+  <img src="images/target1.png" width="300" hspace="20"/>
+  <img src="images/target2.png" width="300" hspace="20"/> 
 </div>
 
 **METTRE LISTE DES VARIABLES**
