@@ -36,6 +36,7 @@ Premièrement, il est impératif d'effectuer une analyse approfondie de la distr
 <div align="center">
   <b>Figure 1 :</b> Répartition de la target avant et après sous-échantillonnage
 </div>
+&nbsp;
 <div style="display: flex; justify-content: center;">
   <img src="images/target1.png" width="380" hspace="20"/>
   <img src="images/target2.png" width="430" hspace="20"/> 
