@@ -55,8 +55,9 @@ Afin que la base soit utilisable pour effectuer nos modèles, il est nécessaire
 <p align="center">
   <b>Figure 2 :</b> Potentielles valeurs atypiques des variables quantitatives
 </p>
+&nbsp;&nbsp;
 <p align="center">
-  <img src="images/outliers.png" width="300" hspace="20"/> 
+  <img src="images/outliers.png" width="500" hspace="20"/> 
 </p>
 
 
@@ -74,13 +75,13 @@ Maintenant que nous avons nettoyé notre base, nous allons entrer plus en détai
 
 À la suite de l'élimination d'observations atypiques, la répartition de la variable cible a subtilement évolué, révélant désormais que 58.8% des cas ne présentent pas d'arrêt cardiaque, contrairement à 44.2% des individus de la base (cf Figure 3). Bien que la répartition ne soit pas parfaitement équilibrée à parts égales, la variable cible n'est pas catégorisée comme déséquilibrée
 
-<div align="center">
-  <b>Figure 3 :</b> Répartition de la target sans valeurs atypiques
-</div>
+<p align="center">
+  <b>Figure 2 :</b> Répartition de la target sans valeurs atypiques
+</p>
 &nbsp;&nbsp;
-<div style="display: flex; justify-content: center;">
-  <img src="images/target3.png" width="300" hspace="20"/> 
-</div>
+<p align="center">
+  <img src="images/target3.png" width="500" hspace="20"/> 
+</p>
 
 #### III.1.2 - Variables explicatives
 
