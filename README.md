@@ -24,7 +24,7 @@ Cette constatation met en évidence l'ampleur mondiale de la prévalence des mal
 
 ---
 
-## II. Analyse & exploration de la base
+## II. Analyse Exploratoire
 
 Afin de réaliser notre analyse, nous avons utilisé le jeu de données "Indicateurs de maladies cardiaques" présent sur le site Kaggle [disponible ici](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease). Initalement, cette base contient 319 795 observations avec un total de 18 variables. En raison de la taille de ce dataset, il est nécessaire d'effectuer de l'analyser (pour voir si des choses ne vont pas) et de l'explorer (afin de se familiariser avec celui-ci).
 
@@ -41,6 +41,76 @@ Premièrement, il est impératif d'effectuer une analyse approfondie de la distr
   <img src="images/target1.png" width="300" hspace="20"/>
   <img src="images/target2.png" width="300" hspace="20"/> 
 </div>
+
+### II.2 - Valeurs manquantes
+
+Il est important de vérifier s’il existe des valeurs manquantes puisqu’elles peuvent impacter les modèles (en compromettant la stabilité, la précision ou encore la généralisation). La base de données était déjà nettoyée et ne comportait pas de valeurs manquantes. Par conséquent, nous n’avons pas eu à les retirer ou encore à leur imputer une valeur. 
+
+### II.3 - Types des variables
+
+### II.4 - Outliers
+
+Afin que la base soit utilisable pour effectuer nos modèles, il est nécessaire d’enlever les valeurs atypiques (ou outliers) de nos variables quantitatives. Cette étape est primordiale puisque les modèles de machine learning peuvent être sensibles aux valeurs aberrantes. Leur présence peut avoir des conséquences négatives sur la performance des modèles. Ici notre objectif est de construire un modèle de prédiction de l’arrêt cardiaque qui reflète la majorité des cas donc nous choisissons de les supprimer.
+
+<div align="center">
+  <b>Figure 2 :</b> Potentielles valeurs atypiques des variables quantitatives
+</div>
+&nbsp;&nbsp;
+<div style="display: flex; justify-content: center;">
+  <img src="images/outliers.png" width="300" hspace="20"/> 
+</div>
+
+La Figure 2 montre qu’il existe de potentielles valeurs atypiques pour toutes nos variables quantitatives. Etant donné qu’il en existe plus de 10 pour chacunes d’entre elles, il est optimal d’effectuer un test ESD [(prit dans ce code)](https://github.com/BambelLarry/Master_2_ECAP/blob/main/Machine_Learning/SVM/Roul/Projet/Projet_Emma_Weiss_Francois_LEBRUMENT.ipynb). Néanmoins, après la suppression des valeurs potentiellement atypiques, nous constatons qu’il en reste encore énormément. Nous avons donc joué sur le z-score (qui est une mesure statistique utilisée pour détecter et supprimer les valeurs aberrantes). Nous constatons qu’en mettant le seuil du z-score à 3, il restait toujours énormément de valeurs atypiques. En revanche, en mettant un z-score à 0.5, nous perdions un nombre non négligeable de données. Nous décidons d’appliquer un z-score de 1. Nous perdons environ 32% des données mais il nous reste un nombre élevé d’observations. En revanche, il semble toujours exister des valeurs potentiellement atypiques pour les variables faisant référence à la santé physique et la santé mentale. Il faudra donc faire particulièrement attention à ces variables.
+
+---
+
+## III - Analyse statistique appronfie
+
+Maintenant que nous avons nettoyé notre base, nous allons entrer plus en détail dans l’analyse en étudiant les différentes statistiques et relations entre les variables. Cette étape est primordiale avant de construire nos modèles.
+
+### III.1 - Statistiques univariées
+
+#### III.1.1 - Variable target
+
+À la suite de l'élimination d'observations atypiques, la répartition de la variable cible a subtilement évolué, révélant désormais que 58.8% des cas ne présentent pas d'arrêt cardiaque, contrairement à 44.2% des individus de la base (cf Figure 3). Bien que la répartition ne soit pas parfaitement équilibrée à parts égales, la variable cible n'est pas catégorisée comme déséquilibrée
+
+<div align="center">
+  <b>Figure 3 :</b> Répartition de la target sans valeurs atypiques
+</div>
+&nbsp;&nbsp;
+<div style="display: flex; justify-content: center;">
+  <img src="images/target3.png" width="300" hspace="20"/> 
+</div>
+
+#### III.1.2 - Variables explicatives
+
+L'Indice de Masse Corporelle (BMI) présente une moyenne d'environ 27,85 avec une légère variabilité (cf Tableau 1). Les comportements liés à la santé, tels que le tabagisme et la consommation d'alcool, montrent des taux respectifs de 45,3% et 5,4%. Les statistiques révèlent également des aspects liés à la santé physique et mentale, avec des indices moyens de 1,17 et 0,96 respectivement. Les caractéristiques démographiques indiquent une répartition équilibrée entre les sexes, avec environ 58,5% de femmes, et une diversité dans les groupes d'âge et les catégories raciales. Ces données offrent un aperçu global des différentes dimensions de la santé et de la diversité démographique au sein de cet échantillon.
+
+<b>Tableau 1 :</b> Statistiques descriptives des variables explicatives
+
+|                     | HeartDisease |     BMI     |   Smoking   | AlcoholDrinking |    Stroke    | PhysicalHealth | MentalHealth | DiffWalking |     Sex     |  Diabetic   | ... | AgeCategory_65-69 | AgeCategory_70-74 | AgeCategory_75-79 | AgeCategory_80_or_older | Race_American | Race_Asian | Race_Black | Race_Hispanic | Race_Other | Race_White |
+|:-------------------:|:------------:|:-----------:|:-----------:|:---------------:|:------------:|:--------------:|:------------:|:-----------:|:-----------:|:------------:|-----|-------------------|-------------------|-------------------|--------------------------|----------------|------------|------------|---------------|------------|------------|
+|        count        |   26590.000  | 26590.000   | 26590.000   |    26590.000    |   26590.000  |   26590.000    |   26590.000  | 26590.000  |   26590.000 |  26590.000   | ... |    26590.000      |     26590.000     |     26590.000     |        26590.000        |   26590.000   |  26590.000 |  26590.000 |   26590.000   | 26590.000  | 26590.000  |
+|         mean        |    0.442     |  27.854892  |   0.452689  |      0.053516    |    0.06446   |    1.171719    |    0.956149  |   0.125686 |    0.585483 |    0.177435  | ... |      0.132305     |      0.140015     |      0.106769     |          0.130162         |     0.014253   |   0.019293 |   0.056111 |    0.068635   |   0.028281 |   0.813426 |
+|          std        |    0.497     |   3.298409  |   0.497766  |      0.225065    |   0.245576   |    2.985478    |    2.270418  |   0.331502 |    0.492648 |    0.382044  | ... |      0.338829     |      0.347009     |      0.308826     |          0.336488         |     0.118536   |   0.137555 |   0.230141 |    0.252837   |   0.165778 |   0.389576 |
+|          min        |      0.0      |   22.38     |      0.0    |        0.0       |      0.0     |      0.0       |      0.0     |     0.0    |      0.0    |      0.0     | ... |        0.0        |        0.0        |        0.0        |           0.0            |       0.0      |     0.0    |     0.0    |      0.0      |     0.0    |     0.0    |
+|          25%        |      0.0      |    25.1     |      0.0    |        0.0       |      0.0     |      0.0       |      0.0     |     0.0    |      0.0    |      0.0     | ... |        0.0        |        0.0        |        0.0        |           0.0            |       0.0      |     0.0    |     0.0    |      0.0      |     0.0    |     1.0    |
+|          50%        |      0.0      |   27.44     |      0.0    |        0.0       |      0.0     |      0.0       |      0.0     |     0.0    |      1.0    |      0.0     | ... |        0.0        |        0.0        |        0.0        |           0.0            |       0.0      |     0.0    |     0.0    |      0.0      |     0.0    |     1.0    |
+|          75%        |      1.0      |   30.27     |      1.0    |        0.0       |      0.0     |      0.0       |      0.0     |     0.0    |      1.0    |      0.0     | ... |        0.0        |        0.0        |        0.0        |           0.0            |       0.0      |     0.0    |     0.0    |      0.0      |     0.0    |     1.0    |
+|          max        |      1.0      |   35.25     |      1.0    |        1.0       |      1.0     |      15.0      |      12.0    |     1.0    |      1.0    |      1.0     | ... |        1.0        |        1.0        |        1.0        |           1.0            |       1.0      |     1.0    |     1.0    |      1.0      |     1.0    |     1.0    |
+
+
+### III.2 - Relations entre les variables
+
+#### III.2.1 - Variables quantitatives
+
+#### III.2.2 - Variables qualitatives
+
+#### III.2.3 - Variables quantitatives et qualitatives
+
+### III.3 - Feature selection
+
+
 
 **METTRE LISTE DES VARIABLES**
 **random forest** ??
