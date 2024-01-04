@@ -52,13 +52,13 @@ Il est important de vérifier s’il existe des valeurs manquantes puisqu’elle
 
 Afin que la base soit utilisable pour effectuer nos modèles, il est nécessaire d’enlever les valeurs atypiques (ou outliers) de nos variables quantitatives. Cette étape est primordiale puisque les modèles de machine learning peuvent être sensibles aux valeurs aberrantes. Leur présence peut avoir des conséquences négatives sur la performance des modèles. Ici notre objectif est de construire un modèle de prédiction de l’arrêt cardiaque qui reflète la majorité des cas donc nous choisissons de les supprimer.
 
-<div align="center">
+<p align="center">
   <b>Figure 2 :</b> Potentielles valeurs atypiques des variables quantitatives
-</div>
-&nbsp;&nbsp;
-<div style="display: flex; justify-content: center;">
+</p>
+<p align="center">
   <img src="images/outliers.png" width="300" hspace="20"/> 
-</div>
+</p>
+
 
 La Figure 2 montre qu’il existe de potentielles valeurs atypiques pour toutes nos variables quantitatives. Etant donné qu’il en existe plus de 10 pour chacunes d’entre elles, il est optimal d’effectuer un test ESD [(prit dans ce code)](https://github.com/BambelLarry/Master_2_ECAP/blob/main/Machine_Learning/SVM/Roul/Projet/Projet_Emma_Weiss_Francois_LEBRUMENT.ipynb). Néanmoins, après la suppression des valeurs potentiellement atypiques, nous constatons qu’il en reste encore énormément. Nous avons donc joué sur le z-score (qui est une mesure statistique utilisée pour détecter et supprimer les valeurs aberrantes). Nous constatons qu’en mettant le seuil du z-score à 3, il restait toujours énormément de valeurs atypiques. En revanche, en mettant un z-score à 0.5, nous perdions un nombre non négligeable de données. Nous décidons d’appliquer un z-score de 1. Nous perdons environ 32% des données mais il nous reste un nombre élevé d’observations. En revanche, il semble toujours exister des valeurs potentiellement atypiques pour les variables faisant référence à la santé physique et la santé mentale. Il faudra donc faire particulièrement attention à ces variables.
 
