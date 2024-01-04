@@ -38,8 +38,8 @@ Premièrement, il est impératif d'effectuer une analyse approfondie de la distr
 </div>
 &nbsp;&nbsp;
 <div style="display: flex; justify-content: center;">
-  <img src="images/target1.png" width="300" hspace="20"/>
-  <img src="images/target2.png" width="300" hspace="20"/> 
+  <img src="images/target1.png" width="400" hspace="20"/>
+  <img src="images/target2.png" width="450" hspace="20"/> 
 </div>
 
 ### II.2 - Valeurs manquantes
@@ -113,7 +113,7 @@ Comprendre les liens et corrélations entre les variables revêt une importance 
 </p>
 &nbsp;&nbsp;
 <p align="center">
-  <img src="images/outliers.png" width="500" hspace="20"/> 
+  <img src="images/correlations.png" width="500" hspace="20"/> 
 </p>
 
 #### III.2.2 - Variables qualitatives
