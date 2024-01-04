@@ -86,8 +86,9 @@ Maintenant que nous avons nettoyé notre base, nous allons entrer plus en détai
 #### III.1.2 - Variables explicatives
 
 L'Indice de Masse Corporelle (BMI) présente une moyenne d'environ 27,85 avec une légère variabilité (cf Tableau 1). Les comportements liés à la santé, tels que le tabagisme et la consommation d'alcool, montrent des taux respectifs de 45,3% et 5,4%. Les statistiques révèlent également des aspects liés à la santé physique et mentale, avec des indices moyens de 1,17 et 0,96 respectivement. Les caractéristiques démographiques indiquent une répartition équilibrée entre les sexes, avec environ 58,5% de femmes, et une diversité dans les groupes d'âge et les catégories raciales. Ces données offrent un aperçu global des différentes dimensions de la santé et de la diversité démographique au sein de cet échantillon.
-
-<b>Tableau 1 :</b> Statistiques descriptives des variables explicatives
+<p align="center">
+<b>Tableau 1 :</b> Statistiques descriptives des variables
+</p>
 
 |                     | HeartDisease |     BMI     |   Smoking   | AlcoholDrinking |    Stroke    | PhysicalHealth | MentalHealth | DiffWalking |     Sex     |  Diabetic   | ... | AgeCategory_65-69 | AgeCategory_70-74 | AgeCategory_75-79 | AgeCategory_80_or_older | Race_American | Race_Asian | Race_Black | Race_Hispanic | Race_Other | Race_White |
 |:-------------------:|:------------:|:-----------:|:-----------:|:---------------:|:------------:|:--------------:|:------------:|:-----------:|:-----------:|:------------:|-----|-------------------|-------------------|-------------------|--------------------------|----------------|------------|------------|---------------|------------|------------|
