@@ -76,7 +76,7 @@ Maintenant que nous avons nettoyé notre base, nous allons entrer plus en détai
 À la suite de l'élimination d'observations atypiques, la répartition de la variable cible a subtilement évolué, révélant désormais que 58.8% des cas ne présentent pas d'arrêt cardiaque, contrairement à 44.2% des individus de la base (cf Figure 3). Bien que la répartition ne soit pas parfaitement équilibrée à parts égales, la variable cible n'est pas catégorisée comme déséquilibrée
 
 <p align="center">
-  <b>Figure 2 :</b> Répartition de la target sans valeurs atypiques
+  <b>Figure 3 :</b> Répartition de la target sans valeurs atypiques
 </p>
 &nbsp;&nbsp;
 <p align="center">
@@ -106,7 +106,19 @@ L'Indice de Masse Corporelle (BMI) présente une moyenne d'environ 27,85 avec un
 
 #### III.2.1 - Variables quantitatives
 
+Comprendre les liens et corrélations entre les variables revêt une importance cruciale dans le domaine du machine learning. Cette analyse permet de réduire la dimensionnalité en éliminant des variables redondantes, simplifiant ainsi le modèle tout en préservant ses performances. La Figure 4 nous montre qu’il n’existe aucune corrélation significative (c’est-à-dire de très forte corrélation positive ou négative). Nous pouvons donc conserver toutes nos variables quantitatives.
+
+<p align="center">
+  <b>Figure 4 :</b> Corrélations entre les variables quantitatives
+</p>
+&nbsp;&nbsp;
+<p align="center">
+  <img src="images/outliers.png" width="500" hspace="20"/> 
+</p>
+
 #### III.2.2 - Variables qualitatives
+
+Pour les variables de type qualitatif, nous avons effectué le test de Chi-2 pour voir l’indépendance entre les variables. L’hypothèse nulle stipule qu’il n’y a aucun lien significatif entre les variables. Nous avons donc testé tous les couples de variables. En revanche, cette fois-ci, nous constatons qu’il existe énormément de liens entre nos variables qualitatives. Par conséquent, nous ne pourrons pas toutes les garder dans l’analyse.
 
 #### III.2.3 - Variables quantitatives et qualitatives
 
