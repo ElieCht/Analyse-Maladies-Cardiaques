@@ -80,7 +80,7 @@ Maintenant que nous avons nettoyé notre base, nous allons entrer plus en détai
 </p>
 &nbsp;&nbsp;
 <p align="center">
-  <img src="images/target3.png" width="500" hspace="20"/> 
+  <img src="images/target3.png" width="400" hspace="20"/> 
 </p>
 
 #### III.1.2 - Variables explicatives
