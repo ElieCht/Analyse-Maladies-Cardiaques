@@ -27,65 +27,36 @@ Cette constatation met en évidence l'ampleur mondiale de la prévalence des mal
 
 Afin de réaliser notre analyse, nous avons utilisé le jeu de données "Indicateurs de maladies cardiaques" présent sur le site Kaggle [disponible ici](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease). Initalement, cette base contient 319 795 observations avec un total de 18 variables. En raison de la taille de ce dataset, il est nécessaire d'effectuer de l'analyser (pour voir si des choses ne vont pas) et de l'explorer (afin de se familiariser avec celui-ci). Les variables présentes dans le jeu de données sont les suivantes : 
 
-<!--
-**HearthDisease:**
-- Cette variable est la variable cible. Elle prend la valeur 0 si la personne n’a pas eu une maladie cardiaque et la valeur 1 si la personne en a déjà eu.
+<details>
+  <summary><strong>HearthDisease:</strong></summary>
+  
+  - Cette variable est la variable cible. Elle prend la valeur 0 si la personne n’a pas eu une maladie cardiaque et la valeur 1 si la personne en a déjà eu.
+</details>
 
-**BMI:**
-- Indice de Masse Corporelle (IMC). Selon l’assurance maladie :
-  - IMC < 18.5 : Sous-poids
-  - 18.5 ⩽ IMC ⩽ 24.9 : Corpulence normale
-  - 25 ⩽ IMC ⩽ 29.9 : Surpoids
-  - IMC ⩽ 30 : Obésité
+<details>
+  <summary><strong>BMI:</strong></summary>
+  
+  - Indice de Masse Corporelle (IMC). Selon l’assurance maladie :
+    - IMC < 18.5 : Sous-poids
+    - 18.5 ⩽ IMC ⩽ 24.9 : Corpulence normale
+    - 25 ⩽ IMC ⩽ 29.9 : Surpoids
+    - IMC ⩽ 30 : Obésité
+</details>
 
-**Smoking:**
-- Variable indiquant si la personne à déjà fumé plus de 100 cigarettes au cours de sa vie. Elle prend la valeur 0 si la personne n’a pas fumé plus de 100 cigarettes et 1 dans le cas contraire.
+<details>
+  <summary><strong>Smoking:</strong></summary>
+  
+  - Variable indiquant si la personne à déjà fumé plus de 100 cigarettes au cours de sa vie. Elle prend la valeur 0 si la personne n’a pas fumé plus de 100 cigarettes et 1 dans le cas contraire.
+</details>
 
-**AlcoholDrinking:**
-- Variable indiquant si la personne a une consommation d’alcool jugée comme excessive (hommes adultes buvant plus de 14 verres par semaine et femmes adultes buvant plus de 7 verres par semaine). Elle prend la valeur 1 si la personne a une consommation jugée excessive et 0 en cas inverse.
+<details>
+  <summary><strong>AlcoholDrinking:</strong></summary>
+  
+  - Variable indiquant si la personne a une consommation d’alcool jugée comme excessive (hommes adultes buvant plus de 14 verres par semaine et femmes adultes buvant plus de 7 verres par semaine). Elle prend la valeur 1 si la personne a une consommation jugée excessive et 0 en cas inverse.
+</details>
 
-**Stroke:**
-- Accident cardiovasculaire cérébral (AVC). Cette variable indique si la personne à déjà eu un AVC. Elle prend la valeur 0 pour non et la valeur 1 pour oui.
+<!-- Ajoutez le reste des détails ici -->
 
-**PhysicalHealth:**
-- Cette variable fait référence à la santé physique de la personne (au cours des 30 derniers jours).
-
-**MentalHealth:**
-- Variable indiquant la santé mentale de l'individu interrogé (au cours des 30 derniers jours).
-
-**DiffWalking:**
-- Indique si la personne a des difficultés à marcher ou à monter les escaliers. La variable prend 0 si la personne n’a pas de difficultés et 1 si elle en a.
-
-**Sex:**
-- Genre de la personne. Elle prend la valeur 0 pour Femme et 1 pour Homme.
-
-**AgeCategory:**
-- Variable indiquant la catégorie d’âge à laquelle la personne appartient. Il y a quatorze catégories d’âge.
-
-**Race:**
-- Ethnicité de l’individu. Cette variable prend plusieurs valeurs : Asian, American Indian/Alaskan Native, Black, Hispanic, White, Other.
-
-**Diabetic:**
-- Variable signalant si la personne a déjà été informée ou alertée concernant un éventuel niveau de diabète. Cette variable peut prendre les valeurs : No, No, borderline diabetes, Yes, Yes (during pregnancy).
-
-**PhysicalActivity:**
-- Indique si la personne a déclaré avoir fait de l’activité sportive au cours des 30 derniers jours en dehors de leur profession. Cette variable prend 1 si la personne en a fait et 0 si elle n’en a pas fait.
-
-**GenHealth:**
-- État de santé selon l’individu. Cette variable peut prendre les valeurs : Excellent, Very good, Good, Fair, Poor.
-
-**SleepTime:**
-- Heures de sommeil de l’individu en moyenne (en 24h).
-
-**Asthme:**
-- Variable indiquant si l’individu a fait/fait de l'asthme. Elle prend 1 pour oui et 0 pour non.
-
-**KidneyDisease:**
-- Variable indiquant si la personne souffre d’une maladie rénale (en dehors des calculs rénaux, des infections de la vessie ou de l'incontinence). Cette variable prend la valeur 0 pour non et 1 pour oui.
-
-**SkinCancer:**
-- Indique si la personne a un cancer de la peau. La variable prend la valeur 0 pour non et 1 pour oui.
--->
 
 ### II.1 - Statistiques univariées
 
