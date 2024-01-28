@@ -15,10 +15,10 @@
 
 ---
 ## I - Introduction 
-
+<div style="text-align: justify;">
 Au cours des deux dernières décennies, les maladies cardiaques ont maintenu leur position de première cause de décès à l'échelle mondiale, demeurant une menace constante pour la santé mondiale. Malgré cette persistance, la situation a pris une tournure alarmante, car ces affections provoquent aujourd'hui un nombre de décès sans précédent. L'ampleur de cette détérioration se reflète dans l'augmentation de plus de 2 millions de décès liés aux maladies cardiaques depuis l'an 2000, atteignant un sommet de près de 9 millions en 2019. Cette évolution significative a propulsé les maladies cardiaques au rang de responsable de 16 % du total des décès, toutes causes confondues. Par ailleurs, l'impact dévastateur des maladies cardiaques s'étend également aux États-Unis, où en 2021, elles demeurent en tête des principales causes de décès, surpassant non seulement d'autres affections graves telles que les cancers et la COVID-19, mais également les accidents (blessures involontaires). Les maladies cardiaques (ou cardiovasculaires) regroupent divers troubles impactant le cœur et les vaisseaux sanguins. Cela englobe divers problèmes, tels que des troubles du rythme cardiaque ou des affections des vaisseaux. Les maladies cardiaques peuvent entraîner des complications graves, comme des crises cardiaques. Les causes sont diverses et variées : mode de vie (tabagisme, consommation excessive d'alcool, régime alimentaire malsain, stress...), facteurs génétiques, conditions médicales (hypertension artérielle, diabète, obésité...), âge, sexe et bien d'autres. 
 Cette constatation met en évidence l'ampleur mondiale de la prévalence des maladies cardiaques et la nécessité impérieuse d'une action coordonnée pour atténuer leur impact dévastateur. Dans cette optique, cette analyse se concentrera spécifiquement sur le cas des Etats-Unis (premièrement pour la disponibilité des données mais également car c’est le pays le plus touché par ce fléau). En effet, cette réalité globale souligne l'urgence de comprendre et de traiter efficacement ces affections. Ainsi, l'objectif de cette étude est de prévoir ces maladies cardiaques en identifiant les paramètres influents.
-
+</div>
 ---
 
 ## II - Analyse Exploratoire
@@ -152,7 +152,7 @@ Afin que la base soit utilisable pour effectuer nos modèles, il est nécessaire
 </div>
 &nbsp;&nbsp;
 <div style="display: flex; justify-content: center;">
-  <img src="images/outliers.png" width="300" hspace="20"/> 
+  <img src="images/outliers.png" width="500" hspace="20"/> 
 </div>
 
 La Figure 3 montre qu’il existe de potentielles valeurs atypiques pour toutes nos variables quantitatives. Après la suppression des valeurs potentiellement atypiques, nous constatons qu’il en reste encore énormément. Nous avons donc joué sur le z-score (qui est une mesure statistique utilisée pour détecter et supprimer les valeurs aberrantes). Nous constatons qu’en mettant le seuil du z-score à 3, il restait toujours énormément de valeurs atypiques. En revanche, en mettant un z-score à 0.5, nous perdions un nombre non négligeable de données. Nous décidons d’appliquer un z-score de 1. Nous perdons environ 32% des données mais il nous reste un nombre élevé d’observations. En revanche, il semble toujours exister des valeurs potentiellement atypiques pour les variables faisant référence à la santé physique et la santé mentale. Il faudra donc faire particulièrement attention à ces variables.
@@ -202,9 +202,11 @@ En raison des nombreuses variables catégorielles liées, nous décidons d’en 
   <b>Tableau 3 :</b> Features qualitatives sélectionnées (Chi2 Feature Selection)
 </p>
 &nbsp;&nbsp;
-| Stroke | DiffWalking | KidneyDisease | SkinCancer | Excellent | Fair | Poor | 75-79 | 80+ | Yes_diabetic |
-|--------|-------------|----------|---------------|-----------|------|------|-----------|-------------------|--------------------------|
-|   ✅  |      ✅      |    ✅    |       ✅        |     ✅    |  ✅  |  ✅  |     ✅    |         ✅         |           ✅            |
+
+| **Stroke** | **DiffWalking** | **KidneyDisease** | **SkinCancer** | **Excellent** | **Fair** | **Poor** | **75-79** | **80+** | **Yes_diabetic** |
+|------------|-----------------|-------------------|----------------|--------------|----------|----------|-----------|---------|------------------|
+|     ✅     |        ✅         |         ✅         |       ✅        |      ✅      |    ✅     |    ✅     |     ✅     |    ✅    |        ✅         |
+
 
 Avec ces variables, nous rajoutons nos 4 variables quantitatives et nous obtenons ainsi un dataframe constitué de 14 variables explicatives. 
 
@@ -286,6 +288,7 @@ Nous avons effectué quatre analyses différentes, où nous avons testé tous le
   <b>Tableau 5 :</b> Accuracy selon les modèles et les cas
 </p>
 &nbsp;&nbsp;
+
 |  | Cas 1 : 14 variables | Cas 2 : 8 variables | Cas 3 : 15 variables | Cas 4 : 9 variables |
 |------------------------|---------------------|---------------------|----------------------|---------------------|
 | Régression logistique | **0.6848** | **0.6731**  | **0.7081**   | 0.6786  |
@@ -309,6 +312,7 @@ La première chose surprenante des résultats issus du Grid Search est que celui
   <b>Tableau 6 :</b> Comparaisons selon les modèles après Grid Search
 </p>
 &nbsp;&nbsp;
+
 | | Cas 1 : 14 variables | Cas 2 : 8 variables | Cas 3 : 15 variables | Cas 4 : 8 variables |
 |-----------|-----------|-----------|-----------|-----------|
 | Accuracy : Train   |    0.6848       |   0.6731        |  **0.7078**         |   0.6989        |
@@ -357,6 +361,10 @@ Cas 4 : Les variables les plus importantes pour expliquer la prédiction de mala
 ### V.5 - Réseau de neurones
 
 La dernière étape de notre étude consiste à mettre en place un réseau de neurones pour chacun des cas. Nous avons directement tenté un grid search. L’objectif est d’essayer de trouver un meilleur modèle que ceux précédents. 
+<p align="center">
+  <b>Tableau 7 :</b> Comparaisons des cas selon le modèle réseau de neurones
+</p>
+&nbsp;&nbsp;
 
 |             | Cas 1   | Cas 2   | Cas 3   | Cas 4   |
 | ----------- | ------- | ------- | ------- | ------- |
