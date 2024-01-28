@@ -27,6 +27,7 @@ Cette constatation met en évidence l'ampleur mondiale de la prévalence des mal
 
 Afin de réaliser notre analyse, nous avons utilisé le jeu de données "Indicateurs de maladies cardiaques" présent sur le site Kaggle [disponible ici](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease). Initalement, cette base contient 319 795 observations avec un total de 18 variables. En raison de la taille de ce dataset, il est nécessaire d'effectuer de l'analyser (pour voir si des choses ne vont pas) et de l'explorer (afin de se familiariser avec celui-ci). Les variables présentes dans le jeu de données sont les suivantes : 
 
+<!--
 **HearthDisease:**
 - Cette variable est la variable cible. Elle prend la valeur 0 si la personne n’a pas eu une maladie cardiaque et la valeur 1 si la personne en a déjà eu.
 
@@ -84,6 +85,7 @@ Afin de réaliser notre analyse, nous avons utilisé le jeu de données "Indicat
 
 **SkinCancer:**
 - Indique si la personne a un cancer de la peau. La variable prend la valeur 0 pour non et 1 pour oui.
+-->
 
 ### II.1 - Statistiques univariées
 
