@@ -208,7 +208,7 @@ Afin que la base soit utilisable pour effectuer nos modèles, il est nécessaire
   <b>Figure 3 :</b> Potentielles valeurs atypiques des variables quantitatives
 </div>
 &nbsp;&nbsp;
-<div style="display: flex; justify-content: center;">
+<div style="text-align: center;">
   <img src="images/outliers.png" width="500" hspace="20"/> 
 </div>
 
