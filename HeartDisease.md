@@ -241,8 +241,8 @@ Pour finir, nous regardons s’il existe des différences significatives entre l
 <p align="center">
   <b>Tableau 2 :</b> Statistiques du test t de Student
 </p>
-&nbsp;&nbsp;
 <p align="center">
+  
 | Variable         | P-value            |
 |------------------|--------------------|
 | HearthDisease & BMI              |2.7721495948880634e-175 |
