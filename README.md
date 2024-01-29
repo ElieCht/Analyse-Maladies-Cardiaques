@@ -238,16 +238,16 @@ Pour les variables de type qualitatif, nous avons effectué le test de Chi-2 pou
 
 Pour finir, nous regardons s’il existe des différences significatives entre les personnes n’ayant pas de maladie cardiaque et les autres vis-à-vis des variables quantitatives. Pour ce faire, nous utilisons le test t de Student. Ce test est utilisé pour comparer les moyennes de deux groupes. L’hypothèse nulle est la suivante : il n'y a pas de différence significative entre les moyennes des deux échantillons.
 
-<center>
-  
+<div align="center">
+
 | Variable                         | P-value                  |
 |----------------------------------|--------------------------|
 | HearthDisease & BMI              | 2.7721495948880634e-175  |
 | HearthDisease & MentalHealth     | 1.4801017749729575e-45   |
 | HearthDisease & PhysicalHealth   | 0                        |
 | HearthDisease & SleepTime        | 0.00011331398017915307   |
-</center>
 
+</div>
 
 Grâce au tableau 2, nous constatons qu’il y a des différences significatives d’IMC, de santé mentale, de santé physique et de temps de sommeil entre les personnes qui n’ont pas de maladies cardiaques et celles qui en ont. Ces résultats suggèrent que ces caractéristiques peuvent être des indicateurs pertinents pour la prédiction des maladies cardiaques.
 
@@ -347,8 +347,8 @@ Nous avons effectué quatre analyses différentes, où nous avons testé tous le
 <p align="center">
   <b>Tableau 5 :</b> Accuracy selon les modèles et les cas
 </p>
-&nbsp;&nbsp;
-
+<div align="center">
+  
 |  | Cas 1 : 14 variables | Cas 2 : 8 variables | Cas 3 : 15 variables | Cas 4 : 9 variables |
 |------------------------|---------------------|---------------------|----------------------|---------------------|
 | Régression logistique | **0.6848** | **0.6731**  | **0.7081**   | 0.6786  |
@@ -362,6 +362,8 @@ Nous avons effectué quatre analyses différentes, où nous avons testé tous le
 | XGBoost               | 0.6667  | 0.6605  | 0.6867   | 0.6663  |
 | K-Nearest Neighbors   | 0.6287 | 0.6455 | 0.6569  | 0.6348 |
 
+</div>
+
 Nous constatons que la régression logistique à une meilleure précision pour 3 cas et le gradient boosting pour le 4e cas. Nous allons effectuer un Grid Search sur les modèles ayant eu les meilleurs résultats afin d’essayer d’encore améliorer leurs performances.
 
 ### V.3 - Exploration paramétrique
@@ -371,7 +373,7 @@ La première chose surprenante des résultats issus du Grid Search est que celui
 <p align="center">
   <b>Tableau 6 :</b> Comparaisons selon les modèles après Grid Search
 </p>
-&nbsp;&nbsp;
+<div align="center">
 
 | | Cas 1 : 14 variables | Cas 2 : 8 variables | Cas 3 : 15 variables | Cas 4 : 8 variables |
 |-----------|-----------|-----------|-----------|-----------|
@@ -379,6 +381,8 @@ La première chose surprenante des résultats issus du Grid Search est que celui
 | Accuracy : Test   |     0.6857      |    **0.7977**       |   0.7076        |  0.6727         |
 | F1 - Score : Train   |  0.6824         |    0.6174       |    **0.7038**       |    0.7029       |
 | F1 - Score : Test   |    0.2269       |   **0.2563**        |   0.2390        |   0.2282        |
+
+</div>
 
 Le tableau présente les performances de nos différentes cas. Le Cas 2 se démarque avec la meilleure performance sur l'ensemble de test, affichant une exactitude de 0.7977 et un score F1 de 0.2563, malgré l'utilisation d'un nombre limité de variables. Le Cas 3 suit de près avec des performances solides, utilisant un ensemble plus large de 15 variables. Les Cas 1 et 4 affichent des performances similaires, bien que légèrement inférieures aux deux premiers cas. En revanche, bien que le cas 2 affiche des performances remarquables sur l'ensemble de test, avec une exactitude de 79,77% et un score F1 de 25,63%, l'écart entre ces mesures et celles de l'ensemble d'entraînement (67,31% d'exactitude et 61,74% de score F1) suggère une possible adaptation excessive aux données d'entraînement. Cela peut indiquer que le modèle a appris des caractéristiques spécifiques aux données d'entraînement qui ne se généralisent pas bien à de nouvelles données, ce qui est caractéristique du surajustement. En revanche, bien que les autres cas puissent également présenter un léger surajustement, les écarts entre les performances d'entraînement et de test sont moins prononcés, indiquant une meilleure généralisation du modèle.
 
@@ -424,12 +428,14 @@ La dernière étape de notre étude consiste à mettre en place un réseau de ne
 <p align="center">
   <b>Tableau 7 :</b> Comparaisons des cas selon le modèle réseau de neurones
 </p>
-&nbsp;&nbsp;
+<div align="center">
 
 |             | Cas 1   | Cas 2   | Cas 3   | Cas 4   |
 | ----------- | ------- | ------- | ------- | ------- |
 | Accuracy    | 0.7366  | **0.7977**  | 0.7042  | 0.6617  |
 | F1 - Score  | **0.2612**  | 0.2599  | 0.2427  | 0.2236  |
+
+</div>
 
 En effet, les résultats sont meilleurs par rapport à tous les autres modèles testés. Pour le premier cas avec 14 variables, le modèle a obtenu une accuracy de 73.66% et un F1 score de 26.12%. Cette combinaison de score que le modèle parvient à classifier correctement près de 74% des individus. Cependant le F1 - Score assez faible suggère que le modèle peut avoir des difficultés en manquant certains cas positifs de maladies cardiaques tout en classant certains individus incorrectement comme porteurs de maladie cardiaques.
 
