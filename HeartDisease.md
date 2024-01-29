@@ -242,13 +242,14 @@ Pour finir, nous regardons s’il existe des différences significatives entre l
   <b>Tableau 2 :</b> Statistiques du test t de Student
 </p>
 &nbsp;&nbsp;
-
+<p align="center">
 | Variable         | P-value            |
 |------------------|--------------------|
 | HearthDisease & BMI              |2.7721495948880634e-175 |
 | HearthDisease & MentalHealth     | 1.4801017749729575e-45 |
-| HearthDisease  & PhysicalHealth   | 0 |
-| HearthDisease  & SleepTime        | 0.00011331398017915307 |
+| HearthDisease & PhysicalHealth   | 0                      |
+| HearthDisease & SleepTime        | 0.00011331398017915307 |
+</p>
 
 Grâce au tableau 2, nous constatons qu’il y a des différences significatives d’IMC, de santé mentale, de santé physique et de temps de sommeil entre les personnes qui n’ont pas de maladies cardiaques et celles qui en ont. Ces résultats suggèrent que ces caractéristiques peuvent être des indicateurs pertinents pour la prédiction des maladies cardiaques.
 
@@ -260,11 +261,11 @@ En raison des nombreuses variables catégorielles liées, nous décidons d’en 
   <b>Tableau 3 :</b> Features qualitatives sélectionnées (Chi2 Feature Selection)
 </p>
 &nbsp;&nbsp;
-
+<p align="center">
 | **Stroke** | **DiffWalking** | **KidneyDisease** | **SkinCancer** | **Excellent** | **Fair** | **Poor** | **75-79** | **80+** | **Yes_diabetic** |
 |------------|-----------------|-------------------|----------------|--------------|----------|----------|-----------|---------|------------------|
 |     ✅     |        ✅         |         ✅         |       ✅        |      ✅      |    ✅     |    ✅     |     ✅     |    ✅    |        ✅         |
-
+</p>
 
 Avec ces variables, nous rajoutons nos 4 variables quantitatives et nous obtenons ainsi un dataframe constitué de 14 variables explicatives. 
 
@@ -274,10 +275,11 @@ Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être int�
   <b>Tableau 4 :</b> Features qualitatives sélectionnées (Variance-based feature selection)
 </p>
 &nbsp;&nbsp;
-
+<p align="center">
 | Smoking | DiffWalking | Sex | PhysicalActivity | Asthma | Good | Excellent | Good | VeryGood | White | No_diabetic | Yes_diabetic | 
 |--------|-------------|---------------|------------|-----------|------|----------|-------|-------------|--------------|--------------|--------------|
 |   ✅   |      ✅      |      ✅       |      ✅      |     ✅    |  ✅  |    ✅     |   ✅  |      ✅      |      ✅       |      ✅       |      ✅       |
+</p>
 
 ---
 
@@ -441,16 +443,23 @@ Enfin, dans le dernier cas avec 10 variables, l'accuracy est de 66.17% et le F1 
 
 ## VI - Conclusion
 
+L’objectif de notre étude était d’effectuer des modèles capables de prédire si une personne était exposée à un risque de maladie cardiaque ou non et de savoir quels caractéristiques sont importantes. La question que vous vous posez est “sommes-nous de bons médecins sachant détecter une maladie cardiaque ?”. Avant de répondre, nous avons exploré la base de données et effectué des modifications afin de pouvoir utiliser les données : modification du type des variables, détection et suppression des valeurs atypiques. Ensuite, nous nous sommes intéressés à la relation entre les variables et nous en sommes venus à la conclusion qu’il était nécessaire d’effectuer une feature selection en raison du nombre élevé de liens entre les variables. Nous en avons réalisé deux différentes : une basée sur le Chi2 et une autre sur la variance. Ces deux features selection nous ont conduit à réaliser 4 analyses différentes afin d’effectuer le meilleur modèle possible.
+
+Ensuite, après cette étape préliminaire mais nécessaire, nous avons pu répondre à la question. Pour ce faire, nous avons réalisé 11 modèles différents pour chacune de nos analyses. Les modèles de réseau de neurones semblent offrir des résultats supérieurs aux autres. Le cas numéro 2 à 8 variables semble être le meilleur en termes d’accuracy et le cas numéro 1 semble être le meilleur en termes de F1 - Score (pour les réseaux de neurones).  Ensuite, la régression logistique semble être le modèle qui est le plus performant pour nos données. Le cas 3 avec 15 variables est celui qui à la meilleure accuracy sur le jeu d'entraînement et le cas 2 avec 8 variables semble avoir la meilleure accuracy sur le jeu test. Ce résultat est plutôt satisfaisant puisqu’il dépasse nettement la performance aléatoire. Cette performance indique que le modèle est capable de distinguer les classes avec une précision supérieure à celle que l’on obtiendrait en devinant au hasard. Pour ce qui est de la métrique du F1 - Score, nos modèles ont des résultats corrects sur le jeu d’entraînement mais assez faibles sur le jeu test. Cela soulève des questions sur la capacité du modèle à prédire avec précision les cas de maladies cardiaques dans des situations réelles. En effet, ces résultats peuvent être un peu nuancés. En effet, tous nos modèles semblent prédire correctement les personnes n’ayant pas de maladies cardiaques mais ils sont moins précis pour détecter les cas où les personnes en ont une. 
+
+De plus, certaines variables semblent diminuer la probabilité de faire une maladie cardiaque comme par exemple avoir un état de santé considéré comme excellent, très bon ou bon. En revanche, des variables semblent faire augmenter la probabilité de faire une maladie cardiaque comme par exemple avoir fait un AVC, avoir une maladie rénale, faire du diabète, avoir du mal à marcher ou encore avoir un état de santé considéré comme pauvre. D’autres variables semblent importantes mais nous ne pouvons pas interpréter le signe : les sexe ou encore l’IMC semble être importantes pour prédire les maladies cardiaques. En revanche, si vous avez des soupçons quant à votre risque de maladie cardiaque, je vous recommande vivement d'interrompre votre lecture de notre étude et de consulter immédiatement un médecin.
+
 ---
 
 ## VII - Discussion
+
+Nous avons effectué un Grid Search, cependant celui-ci nous a permit d'améliorer uniquement un seul modèle. Ce résultat étrange peut provenir de différentes raisons : surajustement, interactions complexes entre hyperparamètres, variabilité des résultats, complexité du modèle ...
 
 **Difficultées rencontrées :** Nous avons essayé de réaliser un modèle sans ré-échantillonné pour voir s’il était utile d’avoir effectué un sous-échantillonnage mais les modèles ont pris un temps considérable à charger donc nous n’avons pas pu le réaliser. De plus, la majorité des Grid Search ont également un temps conséquent à run. 
 
 Nous pouvons également discuter des variables du dataset relatives à la santé des individus. En effet, évaluer sa propre santé est souvent une démarche subjective. Par exemple, une personne avec une santé moyenne pourrait se considérer en bonne santé simplement parce qu'elle pense qu'il y a des gens en moins bonne santé qu'elle
 
 Pour finir, il pourrait être intéressant de réaliser les mêmes modèles en utilisant des données provenant d’un pays différent pour voir si nous obtenons les mêmes résultats. 
-**PARLER DU GRIDSEARCH**
 
 ---
 
