@@ -204,13 +204,13 @@ En procédant à des ajustements dans notre analyse, nous avons entrepris une tr
 
 Afin que la base soit utilisable pour effectuer nos modèles, il est nécessaire d’enlever les valeurs atypiques (ou outliers) de nos variables quantitatives. Cette étape est primordiale puisque les modèles de machine learning peuvent être sensibles aux valeurs aberrantes. Leur présence peut avoir des conséquences négatives sur la performance des modèles. Ici notre objectif est de construire un modèle de prédiction de l’arrêt cardiaque qui reflète la majorité des cas donc nous choisissons de les supprimer.
 
-<div align="center">
+<p align="center">
   <b>Figure 3 :</b> Potentielles valeurs atypiques des variables quantitatives
-</div>
+</p>
 &nbsp;&nbsp;
-<div style="text-align: center;">
+<p align="center">
   <img src="images/outliers.png" width="500" hspace="20"/> 
-</div>
+</p>
 
 La Figure 3 montre qu’il existe de potentielles valeurs atypiques pour toutes nos variables quantitatives. Après la suppression des valeurs potentiellement atypiques, nous constatons qu’il en reste encore énormément. Nous avons donc joué sur le z-score (qui est une mesure statistique utilisée pour détecter et supprimer les valeurs aberrantes). Nous constatons qu’en mettant le seuil du z-score à 3, il restait toujours énormément de valeurs atypiques. En revanche, en mettant un z-score à 0.5, nous perdions un nombre non négligeable de données. Nous décidons d’appliquer un z-score de 1. Nous perdons environ 32% des données mais il nous reste un nombre élevé d’observations. En revanche, il semble toujours exister des valeurs potentiellement atypiques pour les variables faisant référence à la santé physique et la santé mentale. Il faudra donc faire particulièrement attention à ces variables.
 
@@ -262,6 +262,7 @@ En raison des nombreuses variables catégorielles liées, nous décidons d’en 
 </p>
 &nbsp;&nbsp;
 <p align="center">
+  
 | **Stroke** | **DiffWalking** | **KidneyDisease** | **SkinCancer** | **Excellent** | **Fair** | **Poor** | **75-79** | **80+** | **Yes_diabetic** |
 |------------|-----------------|-------------------|----------------|--------------|----------|----------|-----------|---------|------------------|
 |     ✅     |        ✅         |         ✅         |       ✅        |      ✅      |    ✅     |    ✅     |     ✅     |    ✅    |        ✅         |
@@ -276,6 +277,7 @@ Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être int�
 </p>
 &nbsp;&nbsp;
 <p align="center">
+  
 | Smoking | DiffWalking | Sex | PhysicalActivity | Asthma | Good | Excellent | Good | VeryGood | White | No_diabetic | Yes_diabetic | 
 |--------|-------------|---------------|------------|-----------|------|----------|-------|-------------|--------------|--------------|--------------|
 |   ✅   |      ✅      |      ✅       |      ✅      |     ✅    |  ✅  |    ✅     |   ✅  |      ✅      |      ✅       |      ✅       |      ✅       |
