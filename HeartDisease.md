@@ -242,6 +242,7 @@ Pour finir, nous regardons s’il existe des différences significatives entre l
   <b>Tableau 2 :</b> Statistiques du test t de Student
 </p>
 &nbsp;&nbsp;
+
 | Variable         | P-value            |
 |------------------|--------------------|
 | HearthDisease & BMI              |2.7721495948880634e-175 |
@@ -251,7 +252,7 @@ Pour finir, nous regardons s’il existe des différences significatives entre l
 
 Grâce au tableau 2, nous constatons qu’il y a des différences significatives d’IMC, de santé mentale, de santé physique et de temps de sommeil entre les personnes qui n’ont pas de maladies cardiaques et celles qui en ont. Ces résultats suggèrent que ces caractéristiques peuvent être des indicateurs pertinents pour la prédiction des maladies cardiaques.
 
-### III.5 - Relation entre les variables
+### III.5 - Feature Selection
 
 En raison des nombreuses variables catégorielles liées, nous décidons d’en enlever. Pour choisir lesquelles garder (ou lesquelles enlever), un Chi2 Feature Selection a été réalisé. La sélection de caractéristiques basée sur le test du Chi2 évalue l'indépendance statistique entre chaque caractéristique d'un ensemble de données et la variable cible. Elle utilise le test du Chi2 pour mesurer la divergence entre les fréquences observées et attendues des différentes catégories de chaque caractéristique par rapport à la variable cible. Les caractéristiques sont ensuite classées en fonction de leur capacité à discriminer la variable cible, permettant ainsi de sélectionner les caractéristiques les plus informatives. Les features sélectionnées sont dans le tableau 3.
 
@@ -274,9 +275,9 @@ Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être int�
 </p>
 &nbsp;&nbsp;
 
-| Stroke | DiffWalking | KidneyDisease | SkinCancer | Excellent | Good | VeryGood | White | No_diabetic | Yes_diabetic |
-|--------|-------------|---------------|------------|-----------|------|----------|-------|-------------|--------------|
-|   ✅   |      ✅      |      ✅       |      ✅      |     ✅    |  ✅  |    ✅     |   ✅  |      ✅      |      ✅       |
+| Smoking | DiffWalking | Sex | PhysicalActivity | Asthma | Good | Excellent | Good | VeryGood | White | No_diabetic | Yes_diabetic | 
+|--------|-------------|---------------|------------|-----------|------|----------|-------|-------------|--------------|--------------|--------------|
+|   ✅   |      ✅      |      ✅       |      ✅      |     ✅    |  ✅  |    ✅     |   ✅  |      ✅      |      ✅       |      ✅       |      ✅       |
 
 ---
 
