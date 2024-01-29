@@ -166,7 +166,7 @@ Grâce au tableau 3, nous constatons qu’il y a des différences significatives
 
 ### III.5 - Feature Selection
 
-En raison des nombreuses variables catégorielles liées, nous décidons d’en enlever. Pour choisir lesquelles garder (ou lesquelles enlever), un Chi2 Feature Selection a été réalisé. La sélection de caractéristiques basée sur le test du Chi2 évalue l'indépendance statistique entre chaque caractéristique d'un ensemble de données et la variable cible. Elle utilise le test du Chi2 pour mesurer la divergence entre les fréquences observées et attendues des différentes catégories de chaque caractéristique par rapport à la variable cible. Les caractéristiques sont ensuite classées en fonction de leur capacité à discriminer la variable cible, permettant ainsi de sélectionner les caractéristiques les plus informatives. Les features sélectionnées sont dans le tableau 34
+En raison des nombreuses variables catégorielles liées, nous décidons d’en enlever. Pour choisir lesquelles garder (ou lesquelles enlever), un Chi2 Feature Selection a été réalisé. La sélection de caractéristiques basée sur le test du Chi2 évalue l'indépendance statistique entre chaque caractéristique d'un ensemble de données et la variable cible. Elle utilise le test du Chi2 pour mesurer la divergence entre les fréquences observées et attendues des différentes catégories de chaque caractéristique par rapport à la variable cible. Les caractéristiques sont ensuite classées en fonction de leur capacité à discriminer la variable cible, permettant ainsi de sélectionner les caractéristiques les plus informatives. Les features sélectionnées sont dans le tableau 4.
 
 <p align="center">
   <b>Tableau 4 :</b> Features qualitatives sélectionnées (Chi2 Feature Selection)
@@ -180,7 +180,7 @@ En raison des nombreuses variables catégorielles liées, nous décidons d’en 
 
 Avec ces variables, nous rajoutons nos 4 variables quantitatives et nous obtenons ainsi un dataframe constitué de 14 variables explicatives. 
 
-Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être intéressant d’avoir d’autres variables car elles pourraient potentiellement apporter une information supplémentaire et intéressante. Nous réalisons une méthode de sélection basée sur la variance à savoir la "Variance-based feature selection". Les caractéristiques qui ne changent pas beaucoup d’un échantillon à l’autre sont éliminées en supposant que ces caractéristiques n’apportent pas beaucoup d’informations. Nous obtenons les features disponibles dans le tableau 4.
+Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être intéressant d’avoir d’autres variables car elles pourraient potentiellement apporter une information supplémentaire et intéressante. Nous réalisons une méthode de sélection basée sur la variance à savoir la "Variance-based feature selection". Les caractéristiques qui ne changent pas beaucoup d’un échantillon à l’autre sont éliminées en supposant que ces caractéristiques n’apportent pas beaucoup d’informations. Nous obtenons les features disponibles dans le tableau 5.
 
 <p align="center">
   <b>Tableau 5 :</b> Features qualitatives sélectionnées (Variance-based feature selection)
