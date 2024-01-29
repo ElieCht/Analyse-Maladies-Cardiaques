@@ -238,18 +238,16 @@ Pour les variables de type qualitatif, nous avons effectué le test de Chi-2 pou
 
 Pour finir, nous regardons s’il existe des différences significatives entre les personnes n’ayant pas de maladie cardiaque et les autres vis-à-vis des variables quantitatives. Pour ce faire, nous utilisons le test t de Student. Ce test est utilisé pour comparer les moyennes de deux groupes. L’hypothèse nulle est la suivante : il n'y a pas de différence significative entre les moyennes des deux échantillons.
 
-<p align="center">
-  <b>Tableau 2 :</b> Statistiques du test t de Student
-</p>
-<p align="center">
+<center>
   
-| Variable         | P-value            |
-|------------------|--------------------|
-| HearthDisease & BMI              |2.7721495948880634e-175 |
-| HearthDisease & MentalHealth     | 1.4801017749729575e-45 |
-| HearthDisease & PhysicalHealth   | 0                      |
-| HearthDisease & SleepTime        | 0.00011331398017915307 |
-</p>
+| Variable                         | P-value                  |
+|----------------------------------|--------------------------|
+| HearthDisease & BMI              | 2.7721495948880634e-175  |
+| HearthDisease & MentalHealth     | 1.4801017749729575e-45   |
+| HearthDisease & PhysicalHealth   | 0                        |
+| HearthDisease & SleepTime        | 0.00011331398017915307   |
+</center>
+
 
 Grâce au tableau 2, nous constatons qu’il y a des différences significatives d’IMC, de santé mentale, de santé physique et de temps de sommeil entre les personnes qui n’ont pas de maladies cardiaques et celles qui en ont. Ces résultats suggèrent que ces caractéristiques peuvent être des indicateurs pertinents pour la prédiction des maladies cardiaques.
 
