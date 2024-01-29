@@ -25,120 +25,32 @@ Cette constatation met en évidence l'ampleur mondiale de la prévalence des mal
 
 ## II - Analyse Exploratoire
 
-Afin de réaliser notre analyse, nous avons utilisé le jeu de données "Indicateurs de maladies cardiaques" présent sur le site Kaggle [disponible ici](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease). Initalement, cette base contient 319 795 observations avec un total de 18 variables. En raison de la taille de ce dataset, il est nécessaire d'effectuer de l'analyser (pour voir si des choses ne vont pas) et de l'explorer (afin de se familiariser avec celui-ci). Les variables présentes dans le jeu de données sont les suivantes (vous pouvez cliquer dessus pour afficher les détails) : 
+Afin de réaliser notre analyse, nous avons utilisé le jeu de données "Indicateurs de maladies cardiaques" présent sur le site Kaggle [disponible ici](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease). Initalement, cette base contient 319 795 observations avec un total de 18 variables. En raison de la taille de ce dataset, il est nécessaire d'effectuer de l'analyser (pour voir si des choses ne vont pas) et de l'explorer (afin de se familiariser avec celui-ci). Les variables présentes dans le jeu de données sont disponibles dans le tableau 1. 
 
-<details>
-  <summary><strong>HearthDisease</strong></summary>
-  
-  - Cette variable est la variable cible. Elle prend la valeur 0 si la personne n’a pas eu une maladie cardiaque et la valeur 1 si la personne en a déjà eu.
-</details>
+<div align="center">
 
-<details>
-  <summary><strong>BMI</strong></summary>
-  
-  - Indice de Masse Corporelle (IMC). Selon l’assurance maladie :
-    - IMC < 18.5 : Sous-poids
-    - 18.5 ⩽ IMC ⩽ 24.9 : Corpulence normale
-    - 25 ⩽ IMC ⩽ 29.9 : Surpoids
-    - IMC ⩽ 30 : Obésité
-</details>
+| Variable           | Description                                                                                                                                                                             |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **HeartDisease**       | Cette variable est la variable cible. Elle prend la valeur 0 si la personne n’a pas eu une maladie cardiaque et la valeur 1 si la personne en a déjà eu.                              |
+| **BMI**                | Indice de Masse Corporelle (IMC). Selon l’assurance maladie : IMC < 18.5 : Sous-poids, 18.5 ⩽ IMC ⩽ 24.9 : Corpulence normale, 25 ⩽ IMC ⩽ 29.9 : Surpoids, IMC ⩾ 30 : Obésité          |
+| **Smoking**            | Variable indiquant si la personne a déjà fumé plus de 100 cigarettes au cours de sa vie. Elle prend la valeur 0 si la personne n’a pas fumé plus de 100 cigarettes et 1 sinon.            |
+| **AlcoholDrinking**   | Variable indiquant si la personne a une consommation d’alcool jugée comme excessive. Elle prend la valeur 1 si la personne a une consommation jugée excessive et 0 sinon.               |
+| **Stroke**             | Accident cardiovasculaire cérébral (AVC). Cette variable indique si la personne a déjà eu un AVC. Elle prend la valeur 0 pour non et la valeur 1 pour oui.                               |
+| **PhysicalHealth**    | Référence à la santé physique de la personne (au cours des 30 derniers jours).                                                                                                          |
+| **MentalHealth**      | Santé mentale de l'individu interrogé (au cours des 30 derniers jours).                                                                                                                 |
+| **DiffWalking**       | Indique si la personne a des difficultés à marcher ou à monter les escaliers. Elle prend 0 si la personne n’a pas de difficultés et 1 sinon.                                            |
+| **Sex**                | Genre de la personne. Elle prend la valeur 0 pour Femme et 1 pour Homme.                                                                                                                |
+| **AgeCategory**       | Catégorie d’âge à laquelle la personne appartient. Il y a quatorze catégories d’âge.                                                                                                   |
+| **Race**               | Ethnicité de l’individu. Les valeurs possibles sont : Asian, American Indian/Alaskan Native, Black, Hispanic, White, Other.                                                            |
+| **Diabetic**          | Variable signalant si la personne a déjà été informée ou alertée concernant un éventuel niveau de diabète. Les valeurs possibles sont : No, No, borderline diabetes, Yes, Yes (during pregnancy). |
+| **PhysicalActivity**  | Indique si la personne a fait de l’activité sportive au cours des 30 derniers jours en dehors de leur profession. Elle prend 1 si la personne en a fait et 0 sinon.                    |
+| **GenHealth**         | État de santé selon l’individu. Les valeurs possibles sont : Excellent, Very good, Good, Fair, Poor.                                                                                  |
+| **SleepTime**         | Heures de sommeil de l’individu en moyenne (en 24h).                                                                                                                                   |
+| **Asthma**            | Indique si l’individu a fait/fait de l'asthme. Elle prend 1 pour oui et 0 pour non.                                                                                                   |
+| **KidneyDisease**    | Indique si la personne souffre d’une maladie rénale (en dehors des calculs rénaux, des infections de la vessie ou de l'incontinence). Elle prend 0 pour non et 1 pour oui.               |
+| **SkinCancer**        | Indique si la personne a un cancer de la peau. Elle prend 0 pour non et 1 pour oui.                                                                                                    |
 
-<details>
-  <summary><strong>Smoking</strong></summary>
-  
-  - Variable indiquant si la personne à déjà fumé plus de 100 cigarettes au cours de sa vie. Elle prend la valeur 0 si la personne n’a pas fumé plus de 100 cigarettes et 1 dans le cas contraire.
-</details>
-
-<details>
-  <summary><strong>AlcoholDrinking</strong></summary>
-  
-  - Variable indiquant si la personne a une consommation d’alcool jugée comme excessive (hommes adultes buvant plus de 14 verres par semaine et femmes adultes buvant plus de 7 verres par semaine). Elle prend la valeur 1 si la personne a une consommation jugée excessive et 0 en cas inverse.
-</details>
-
-<details>
-  <summary><strong>Stroke</strong></summary>
-  
-  - Accident cardiovasculaire cérébral (AVC). Cette variable indique si la personne à déjà eu un AVC. Elle prend la valeur 0 pour non et la valeur 1 pour oui.
-</details>
-
-<details>
-  <summary><strong>PhysicalHealth</strong></summary>
-  
-  - Cette variable fait référence à la santé physique de la personne (au cours des 30 derniers jours).
-</details>
-
-<details>
-  <summary><strong>MentalHealth:</strong></summary>
-  
-  - Variable indiquant la santé mentale de l'individu interrogé (au cours des 30 derniers jours).
-</details>
-
-<details>
-  <summary><strong>DiffWalking</strong></summary>
-  
-  - Indique si la personne a des difficultés à marcher ou à monter les escaliers. La variable prend 0 si la personne n’a pas de difficultés et 1 si elle en a.
-</details>
-
-<details>
-  <summary><strong>Sex</strong></summary>
-  
-  - Genre de la personne. Elle prend la valeur 0 pour Femme et 1 pour Homme.
-</details>
-
-<details>
-  <summary><strong>AgeCategory</strong></summary>
-  
-  - Variable indiquant la catégorie d’âge à laquelle la personne appartient. Il y a quatorze catégories d’âge.
-</details>
-
-<details>
-  <summary><strong>Race</strong></summary>
-  
-  - Ethnicité de l’individu. Cette variable prend plusieurs valeurs : Asian, American Indian/Alaskan Native, Black, Hispanic, White, Other.
-</details>
-
-<details>
-  <summary><strong>Diabetic</strong></summary>
-  
-  - Variable signalant si la personne a déjà été informée ou alertée concernant un éventuel niveau de diabète. Cette variable peut prendre les valeurs : No, No, borderline diabetes, Yes, Yes (during pregnancy).
-</details>
-
-<details>
-  <summary><strong>PhysicalActivity</strong></summary>
-  
-  - Indique si la personne a déclaré avoir fait de l’activité sportive au cours des 30 derniers jours en dehors de leur profession. Cette variable prend 1 si la personne en a fait et 0 si elle n’en a pas fait.
-</details>
-
-<details>
-  <summary><strong>GenHealth</strong></summary>
-  
-  - État de santé selon l’individu. Cette variable peut prendre les valeurs : Excellent, Very good, Good, Fair, Poor.
-</details>
-
-<details>
-  <summary><strong>SleepTime</strong></summary>
-  
-  - Heures de sommeil de l’individu en moyenne (en 24h).
-</details>
-
-<details>
-  <summary><strong>Asthma</strong></summary>
-  
-  - Variable indiquant si l’individu a fait/fait de l'asthme. Elle prend 1 pour oui et 0 pour non.
-</details>
-
-<details>
-  <summary><strong>KidneyDisease</strong></summary>
-  
-  - Variable indiquant si la personne souffre d’une maladie rénale (en dehors des calculs rénaux, des infections de la vessie ou de l'incontinence). Cette variable prend la valeur 0 pour non et 1 pour oui.
-</details>
-
-<details>
-  <summary><strong>SkinCancer</strong></summary>
-  
-  - Indique si la personne a un cancer de la peau. La variable prend la valeur 0 pour non et 1 pour oui.
-</details>
-
+</div>
 
 ### II.1 - Statistiques univariées
 
@@ -171,7 +83,7 @@ Grâce aux graphiques ci-dessous, nous pouvons tirer quelques conclusions. Tout 
 L'analyse des données recueillies révèle plusieurs éléments significatifs concernant la santé et la démographie au sein de l'échantillon étudié. En termes d'Indice de Masse Corporelle (BMI), la moyenne observée est d'environ 28,33, avec une légère variabilité, comme indiqué dans le Tableau 1. Les comportements liés à la santé, tels que le tabagisme (41,25%) et la consommation d'alcool (6,81%), reflètent des habitudes variées au sein de la population. Au sein de l’échantillon, il y a plus de femmes que d’hommes et la plupart des individus estiment que leur santé est très bonne. 
 
 <p align="center">
-<b>Tableau 1 :</b> Statistiques descriptives des variables
+<b>Tableau 2 :</b> Statistiques descriptives des variables
 </p>
 
 |               | **HeartDisease** | **BMI** | **Smoking** | **AlcoholDrinking** | **Stroke** | **PhysicalHealth** | **MentalHealth** | **DiffWalking** | **Sex** | **AgeCategory** | **Race** | **Diabetic** | **PhysicalActivity** | **GenHealth** | **SleepTime** | **Asthma** | **KidneyDisease** | **SkinCancer** |
@@ -237,7 +149,7 @@ Pour les variables de type qualitatif, nous avons effectué le test de Chi-2 pou
 
 Pour finir, nous regardons s’il existe des différences significatives entre les personnes n’ayant pas de maladie cardiaque et les autres vis-à-vis des variables quantitatives. Pour ce faire, nous utilisons le test t de Student. Ce test est utilisé pour comparer les moyennes de deux groupes. L’hypothèse nulle est la suivante : il n'y a pas de différence significative entre les moyennes des deux échantillons.
 <p align="center">
-  <b>Tableau 2:</b> Liens entre la target et les variables quantitatives
+  <b>Tableau 3 :</b> Liens entre la target et les variables quantitatives
 </p>
 <div align="center">
 
@@ -250,14 +162,14 @@ Pour finir, nous regardons s’il existe des différences significatives entre l
 
 </div>
 
-Grâce au tableau 2, nous constatons qu’il y a des différences significatives d’IMC, de santé mentale, de santé physique et de temps de sommeil entre les personnes qui n’ont pas de maladies cardiaques et celles qui en ont. Ces résultats suggèrent que ces caractéristiques peuvent être des indicateurs pertinents pour la prédiction des maladies cardiaques.
+Grâce au tableau 3, nous constatons qu’il y a des différences significatives d’IMC, de santé mentale, de santé physique et de temps de sommeil entre les personnes qui n’ont pas de maladies cardiaques et celles qui en ont. Ces résultats suggèrent que ces caractéristiques peuvent être des indicateurs pertinents pour la prédiction des maladies cardiaques.
 
 ### III.5 - Feature Selection
 
-En raison des nombreuses variables catégorielles liées, nous décidons d’en enlever. Pour choisir lesquelles garder (ou lesquelles enlever), un Chi2 Feature Selection a été réalisé. La sélection de caractéristiques basée sur le test du Chi2 évalue l'indépendance statistique entre chaque caractéristique d'un ensemble de données et la variable cible. Elle utilise le test du Chi2 pour mesurer la divergence entre les fréquences observées et attendues des différentes catégories de chaque caractéristique par rapport à la variable cible. Les caractéristiques sont ensuite classées en fonction de leur capacité à discriminer la variable cible, permettant ainsi de sélectionner les caractéristiques les plus informatives. Les features sélectionnées sont dans le tableau 3.
+En raison des nombreuses variables catégorielles liées, nous décidons d’en enlever. Pour choisir lesquelles garder (ou lesquelles enlever), un Chi2 Feature Selection a été réalisé. La sélection de caractéristiques basée sur le test du Chi2 évalue l'indépendance statistique entre chaque caractéristique d'un ensemble de données et la variable cible. Elle utilise le test du Chi2 pour mesurer la divergence entre les fréquences observées et attendues des différentes catégories de chaque caractéristique par rapport à la variable cible. Les caractéristiques sont ensuite classées en fonction de leur capacité à discriminer la variable cible, permettant ainsi de sélectionner les caractéristiques les plus informatives. Les features sélectionnées sont dans le tableau 34
 
 <p align="center">
-  <b>Tableau 3 :</b> Features qualitatives sélectionnées (Chi2 Feature Selection)
+  <b>Tableau 4 :</b> Features qualitatives sélectionnées (Chi2 Feature Selection)
 </p>
 <div align="center">  
   
@@ -271,7 +183,7 @@ Avec ces variables, nous rajoutons nos 4 variables quantitatives et nous obtenon
 Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être intéressant d’avoir d’autres variables car elles pourraient potentiellement apporter une information supplémentaire et intéressante. Nous réalisons une méthode de sélection basée sur la variance à savoir la "Variance-based feature selection". Les caractéristiques qui ne changent pas beaucoup d’un échantillon à l’autre sont éliminées en supposant que ces caractéristiques n’apportent pas beaucoup d’informations. Nous obtenons les features disponibles dans le tableau 4.
 
 <p align="center">
-  <b>Tableau 4 :</b> Features qualitatives sélectionnées (Variance-based feature selection)
+  <b>Tableau 5 :</b> Features qualitatives sélectionnées (Variance-based feature selection)
 </p>
 <p align="center">
   
@@ -340,10 +252,10 @@ Nous utiliserons l’accuracy et le F1 - Score comme métriques. L’accuracy (o
 
 ### V.2 - Meilleurs modèles
 
-Nous avons effectué quatre analyses différentes, où nous avons testé tous les modèles mentionnés précédemment pour chacune d'elles. Pour prendre une décision, nous nous sommes principalement basés sur l'accuracy. Pour cela, nous avons utilisé une validation croisée à 5 partitions pour tous les modèles, afin de choisir celui qui pourrait bénéficier d'un ajustement supplémentaire. Même si certains modèles semblaient plus stables que d'autres en termes d'écart-type, nous avons remarqué que tous les modèles étaient assez fiables dans l'ensemble. Sur l’annexe 1, nous avons mis la représentation graphique du tableau 5.
+Nous avons effectué quatre analyses différentes, où nous avons testé tous les modèles mentionnés précédemment pour chacune d'elles. Pour prendre une décision, nous nous sommes principalement basés sur l'accuracy. Pour cela, nous avons utilisé une validation croisée à 5 partitions pour tous les modèles, afin de choisir celui qui pourrait bénéficier d'un ajustement supplémentaire. Même si certains modèles semblaient plus stables que d'autres en termes d'écart-type, nous avons remarqué que tous les modèles étaient assez fiables dans l'ensemble. Sur l’annexe 1, nous avons mis la représentation graphique du tableau 6.
 
 <p align="center">
-  <b>Tableau 5 :</b> Accuracy selon les modèles et les cas
+  <b>Tableau 6 :</b> Accuracy selon les modèles et les cas
 </p>
 <div align="center">
   
@@ -369,7 +281,7 @@ Nous constatons que la régression logistique à une meilleure précision pour 3
 La première chose surprenante des résultats issus du Grid Search est que celui-ci améliore la précision dans un seul cas (le numéro 4). Nous reviendrons sur ces résultats dans la discussion.
 
 <p align="center">
-  <b>Tableau 6 :</b> Comparaisons selon les modèles après Grid Search
+  <b>Tableau 7 :</b> Comparaisons selon les modèles après Grid Search
 </p>
 <div align="center">
 
@@ -418,7 +330,7 @@ Il peut être intéressant de s’intéresser aux variables les plus importantes
 
 La dernière étape de notre étude consiste à mettre en place un réseau de neurones pour chacun des cas. Nous avons directement tenté un grid search. L’objectif est d’essayer de trouver un meilleur modèle que ceux précédents. 
 <p align="center">
-  <b>Tableau 7 :</b> Comparaisons des cas selon le modèle réseau de neurones
+  <b>Tableau 8 :</b> Comparaisons des cas selon le modèle réseau de neurones
 </p>
 <div align="center">
 
