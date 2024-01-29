@@ -220,12 +220,11 @@ Comprendre les liens et corrélations entre les variables revêt une importance 
 
 #### III.4.1 - Variables quantitatives
 
-La Figure 3 nous montre qu’il n’existe aucune corrélation significative (c’est-à-dire de très forte corrélation positive ou négative). Nous pouvons donc conserver toutes nos variables quantitatives.
+La Figure 4 nous montre qu’il n’existe aucune corrélation significative (c’est-à-dire de très forte corrélation positive ou négative). Nous pouvons donc conserver toutes nos variables quantitatives.
 
 <p align="center">
   <b>Figure 4 :</b> Corrélations entre les variables quantitatives
 </p>
-&nbsp;&nbsp;
 <p align="center">
   <img src="images/correlations.png" width="500" hspace="20"/> 
 </p>
@@ -237,7 +236,9 @@ Pour les variables de type qualitatif, nous avons effectué le test de Chi-2 pou
 #### III.4.3 - Variables quantitives & qualitatives
 
 Pour finir, nous regardons s’il existe des différences significatives entre les personnes n’ayant pas de maladie cardiaque et les autres vis-à-vis des variables quantitatives. Pour ce faire, nous utilisons le test t de Student. Ce test est utilisé pour comparer les moyennes de deux groupes. L’hypothèse nulle est la suivante : il n'y a pas de différence significative entre les moyennes des deux échantillons.
-
+<p align="center">
+  <b>Tableau 2:</b> Liens entre la target et les variables quantitatives
+</p>
 <div align="center">
 
 | Variable                         | P-value                  |
@@ -258,13 +259,12 @@ En raison des nombreuses variables catégorielles liées, nous décidons d’en 
 <p align="center">
   <b>Tableau 3 :</b> Features qualitatives sélectionnées (Chi2 Feature Selection)
 </p>
-&nbsp;&nbsp;
-<p align="center">
+<div align="center">  
   
 | **Stroke** | **DiffWalking** | **KidneyDisease** | **SkinCancer** | **Excellent** | **Fair** | **Poor** | **75-79** | **80+** | **Yes_diabetic** |
 |------------|-----------------|-------------------|----------------|--------------|----------|----------|-----------|---------|------------------|
 |     ✅     |        ✅         |         ✅         |       ✅        |      ✅      |    ✅     |    ✅     |     ✅     |    ✅    |        ✅         |
-</p>
+</div>
 
 Avec ces variables, nous rajoutons nos 4 variables quantitatives et nous obtenons ainsi un dataframe constitué de 14 variables explicatives. 
 
@@ -273,7 +273,6 @@ Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être int�
 <p align="center">
   <b>Tableau 4 :</b> Features qualitatives sélectionnées (Variance-based feature selection)
 </p>
-&nbsp;&nbsp;
 <p align="center">
   
 | Smoking | DiffWalking | Sex | PhysicalActivity | Asthma | Good | Excellent | Good | VeryGood | White | No_diabetic | Yes_diabetic | 
@@ -292,7 +291,7 @@ Dans cette partie de l’analyse, nous avons divisé notre jeu de données en en
 <p align="center">
   <b>Figure 5 :</b> Répartition de la variable cible après ré-échantillonnage sur entraînement
 </p>
-&nbsp;&nbsp;
+&nbsp;
 <p align="center">
   <img src="images/target2.png" width="500" hspace="20"/> 
 </p>
@@ -341,7 +340,6 @@ Nous utiliserons l’accuracy et le F1 - Score comme métriques. L’accuracy (o
 
 ### V.2 - Meilleurs modèles
 
-
 Nous avons effectué quatre analyses différentes, où nous avons testé tous les modèles mentionnés précédemment pour chacune d'elles. Pour prendre une décision, nous nous sommes principalement basés sur l'accuracy. Pour cela, nous avons utilisé une validation croisée à 5 partitions pour tous les modèles, afin de choisir celui qui pourrait bénéficier d'un ajustement supplémentaire. Même si certains modèles semblaient plus stables que d'autres en termes d'écart-type, nous avons remarqué que tous les modèles étaient assez fiables dans l'ensemble. Sur l’annexe 1, nous avons mis la représentation graphique du tableau 5.
 
 <p align="center">
@@ -386,41 +384,35 @@ La première chose surprenante des résultats issus du Grid Search est que celui
 
 Le tableau présente les performances de nos différentes cas. Le Cas 2 se démarque avec la meilleure performance sur l'ensemble de test, affichant une exactitude de 0.7977 et un score F1 de 0.2563, malgré l'utilisation d'un nombre limité de variables. Le Cas 3 suit de près avec des performances solides, utilisant un ensemble plus large de 15 variables. Les Cas 1 et 4 affichent des performances similaires, bien que légèrement inférieures aux deux premiers cas. En revanche, bien que le cas 2 affiche des performances remarquables sur l'ensemble de test, avec une exactitude de 79,77% et un score F1 de 25,63%, l'écart entre ces mesures et celles de l'ensemble d'entraînement (67,31% d'exactitude et 61,74% de score F1) suggère une possible adaptation excessive aux données d'entraînement. Cela peut indiquer que le modèle a appris des caractéristiques spécifiques aux données d'entraînement qui ne se généralisent pas bien à de nouvelles données, ce qui est caractéristique du surajustement. En revanche, bien que les autres cas puissent également présenter un léger surajustement, les écarts entre les performances d'entraînement et de test sont moins prononcés, indiquant une meilleure généralisation du modèle.
 
+<p align="center">
+  <b>Figure 6 :</b> Matrice de confusion des meilleurs modèles
+</p>
+<p align="center">
+  <img src="images/mc1.png" width="500" hspace="20"/> 
+</p>
+
+La matrice de confusion révèle que les modèles parviennent bien à prédire les individus sans maladie cardiaque, mais ont plus de difficulté à détecter ceux qui en sont réellement affectés. 
+
 ### V.4 - Importance des variables
 
 Il peut être intéressant de s’intéresser aux variables les plus importantes de nos modèles. Dans le cas de la régression logistique, l'importance des variables est déterminée par les coefficients attribués à chaque variable, reflétant leur contribution relative à la prédiction de la variable cible. En revanche, dans le GradientBoostingClassifier, l'importance des variables est évaluée en fonction de leur contribution à la réduction de l'erreur du modèle.
 
 <p align="center">
-  <b>Figure 6 :</b> Cas 1 : Importance des variables
-</p>
-<p align="center">
-  <img src="images/importance1.png" width="500" hspace="20"/> 
+  <b>Figure 7 :</b> Importance des variables
 </p>
 
-<p align="center">
-  <b>Figure 7 :</b> Cas 2 : Importance des variables
-</p>
-<p align="center">
-  <img src="images/importance2.png" width="500" hspace="20"/> 
-</p>
+| Cas 1 : Importance des variables                   | Cas 2 : Importance des variables                   |
+|----------------------------------------------------|----------------------------------------------------|
+| ![Figure 8](images/importance1.png)               | ![Figure 9](images/importance2.png)               |
 
-<p align="center">
-  <b>Figure 8 :</b> Cas 3 : Importance des variables
-</p>
-<p align="center">
-  <img src="images/importance3.png" width="500" hspace="20"/> 
-</p>
+| Cas 3 : Importance des variables                   | Cas 4 : Importance des variables                   |
+|----------------------------------------------------|----------------------------------------------------|
+| ![Figure 10](images/importance3.png)               | ![Figure 11](images/importance4.png)               |
 
-<p align="center">
-  <b>Figure 9 :</b> Cas 4 : Importance des variables
-</p>
-<p align="center">
-  <img src="images/importance4.png" width="500" hspace="20"/> 
-</p>
-Cas 1 : Avoir un état de santé excellent, très bon ou bon semble diminuer la probabilité d’avoir une maladie cardiaque. En revanche, le fait d’être blanc, le genre et le fait de fumer semblent augmenter cette probabilité.
-Cas 2 : Avoir fait un AVC, voir sa santé comme pauvre (ou juste), avoir une maladie rénale, être diabétique, avoir du mal à marcher semblent augmenter la probabilité d’avoir une maladie cardiaque.
-Cas 3 : Il semble que les individus ayant une excellente ou une très bonne santé aient une probabilité plus faible d’avoir une maladie cardiaque. En revanche, le fait d’avoir des difficultés à marcher ou d’être blanc augmente cette probabilité.
-Cas 4 : Les variables les plus importantes pour expliquer la prédiction de maladie cardiaque sont le fait d’être en excellente ou très bonne santé. Le genre, l’IMC et le fait de fumer semblent également être des variables importantes.
+- Cas 1 : Avoir un état de santé excellent, très bon ou bon semble diminuer la probabilité d’avoir une maladie cardiaque. En revanche, le fait d’être blanc, le genre et le fait de fumer semblent augmenter cette probabilité.
+- Cas 2 : Avoir fait un AVC, voir sa santé comme pauvre (ou juste), avoir une maladie rénale, être diabétique, avoir du mal à marcher semblent augmenter la probabilité d’avoir une maladie cardiaque.
+- Cas 3 : Il semble que les individus ayant une excellente ou une très bonne santé aient une probabilité plus faible d’avoir une maladie cardiaque. En revanche, le fait d’avoir des difficultés à marcher ou d’être blanc augmente cette probabilité.
+- Cas 4 : Les variables les plus importantes pour expliquer la prédiction de maladie cardiaque sont le fait d’être en excellente ou très bonne santé. Le genre, l’IMC et le fait de fumer semblent également être des variables importantes.
 
 ### V.5 - Réseau de neurones
 
@@ -444,6 +436,15 @@ Dans le deuxième cas, qui utilise seulement 8 variables, l'accuracy a augmenté
 Pour le troisième cas, avec 15 variables, l'accuracy est de 70.42% et le F1 score est de 24.27%. Bien que ce modèle utilise plus de variables, il semble moins performant que le deuxième cas en termes d'accuracy et de F1 score. Cela peut indiquer que certaines variables supplémentaires n'ajoutent pas de valeur prédictive significative ou peuvent introduire du bruit dans le modèle.
 
 Enfin, dans le dernier cas avec 10 variables, l'accuracy est de 66.17% et le F1 score est de 22.36%. Ce modèle semble être le moins performant des quatre cas, ce qui suggère que la réduction du nombre de variables a eu un impact négatif sur sa capacité à prédire correctement les cas de maladie cardiaque.
+
+<p align="center">
+  <b>Figure 8 :</b> Matrice de confusion des meilleurs modèles
+</p>
+<p align="center">
+  <img src="images/mcrn.png" width="500" hspace="20"/> 
+</p>
+
+Encore une fois, dans les quatre cas, le modèle présente une meilleure précision dans la prédiction des individus sans maladie cardiaque. En revanche, sa capacité à détecter correctement les personnes atteintes d'une maladie cardiaque est moins satisfaisante.
 
 ---
 
@@ -471,6 +472,17 @@ Pour finir, il pourrait être intéressant de réaliser les mêmes modèles en u
 
 ## VIII - Annexe
 
+<p align="center">
+  <b>Annexe 1 :</b> Evolution de l'accuracy en fonction des folds
+</p>
+
+| Cas 1                   | Cas 2                    |
+|----------------------------------------------------|----------------------------------------------------|
+| ![Figure 6](images/cv1.png)               | ![Figure 7](images/cv2.png)               |
+
+| Cas 3                    | Cas 4                   |
+|----------------------------------------------------|----------------------------------------------------|
+| ![Figure 8](images/cv3.png)               | ![Figure 9](images/cv4.png)               |
 
 ---
 
