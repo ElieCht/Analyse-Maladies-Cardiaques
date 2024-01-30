@@ -27,6 +27,10 @@ Cette constatation met en évidence l'ampleur mondiale de la prévalence des mal
 
 Afin de réaliser notre analyse, nous avons utilisé le jeu de données "Indicateurs de maladies cardiaques" présent sur le site Kaggle [disponible ici](https://www.kaggle.com/datasets/kamilpytlak/personal-key-indicators-of-heart-disease). Initalement, cette base contient 319 795 observations avec un total de 18 variables. En raison de la taille de ce dataset, il est nécessaire d'effectuer de l'analyser (pour voir si des choses ne vont pas) et de l'explorer (afin de se familiariser avec celui-ci). Les variables présentes dans le jeu de données sont disponibles dans le tableau 1. 
 
+<p align="center">
+  <b>Tableau 1 :</b> Description des variables
+</p>
+
 <div align="center">
 
 | Variable           | Description                                                                                                                                                                             |
@@ -110,7 +114,7 @@ Il est important de vérifier s’il existe des valeurs manquantes puisqu’elle
 
 ### III.2 - Type des variables
 
-En procédant à des ajustements dans notre analyse, nous avons entrepris une transformation des types de certaines variables. Initialement, les variables qui utilisaient les valeurs "No" et "Yes" ont été converties de manière à leur attribuer respectivement les valeurs numériques 0 et 1. Cette transformation simplifie la manipulation de ces variables dans des analyses statistiques. Par ailleurs, certaines variables pouvaient prendre plusieurs modalités, nécessitant ainsi l'utilisation du `OneHotEncoder`. Cette technique a été appliquée pour transformer ces variables catégorielles en une représentation numérique adaptée à l'analyse. Le OneHotEncoder crée des variables binaires distinctes pour chaque modalité, permettant ainsi de capturer efficacement l'information contenue dans ces variables complexes. Néanmoins, l’inconvénient de cette technique est que nous nous retrouvons avec un nombre élevé de variables (42 pour être précis). Il sera certainement nécessaire d’effectuer une feature selection par la suite.  
+En procédant à des ajustements dans notre analyse, nous avons entrepris une transformation des types de certaines variables. Initialement, les variables qui utilisaient les valeurs "No" et "Yes" ont été converties de manière à leur attribuer respectivement les valeurs numériques 0 et 1. Cette transformation simplifie la manipulation de ces variables dans des analyses statistiques. Par ailleurs, certaines variables pouvaient prendre plusieurs modalités, nécessitant ainsi l'utilisation du `OneHotEncoder`. Cette technique a été appliquée pour transformer ces variables catégorielles en une représentation numérique adaptée à l'analyse. Le OneHotEncoder crée des variables binaires distinctes pour chaque modalité, permettant ainsi de capturer efficacement l'information contenue dans ces variables complexes. Néanmoins, l'inconvénient de cette technique est que nous nous retrouvons avec un nombre élevé de variables (42 pour être précis). Il sera certainement nécessaire d'effectuer une sélection de caractéristiques par la suite.
 
 ### III.3 - Outliers
 
