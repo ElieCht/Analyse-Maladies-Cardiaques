@@ -84,7 +84,7 @@ Grâce aux graphiques ci-dessous, nous pouvons tirer quelques conclusions. Tout 
 
 ### II.3 - Statistiques descriptives
 
-L'analyse des données recueillies révèle plusieurs éléments significatifs concernant la santé et la démographie au sein de l'échantillon étudié. En termes d'Indice de Masse Corporelle (BMI), la moyenne observée est d'environ 28,33, avec une légère variabilité, comme indiqué dans le Tableau 1. Les comportements liés à la santé, tels que le tabagisme (41,25%) et la consommation d'alcool (6,81%), reflètent des habitudes variées au sein de la population. Au sein de l’échantillon, il y a plus de femmes que d’hommes et la plupart des individus estiment que leur santé est très bonne. 
+L'analyse des données recueillies révèle plusieurs éléments significatifs concernant la santé et la démographie au sein de l'échantillon étudié. En termes d'Indice de Masse Corporelle (BMI), la moyenne observée est d'environ 28,33, avec une légère variabilité, comme indiqué dans le Tableau 1. Les comportements liés à la santé, tels que le tabagisme et la consommation d'alcool, reflètent des habitudes variées au sein de la population. Au sein de l’échantillon, il y a plus de femmes que d’hommes et la plupart des individus estiment que leur santé est très bonne. 
 
 <p align="center">
 <b>Tableau 2 :</b> Statistiques descriptives des variables
@@ -114,7 +114,7 @@ Il est important de vérifier s’il existe des valeurs manquantes puisqu’elle
 
 ### III.2 - Type des variables
 
-En procédant à des ajustements dans notre analyse, nous avons entrepris une transformation des types de certaines variables. Initialement, les variables qui utilisaient les valeurs "No" et "Yes" ont été converties de manière à leur attribuer respectivement les valeurs numériques 0 et 1. Cette transformation simplifie la manipulation de ces variables dans des analyses statistiques. Par ailleurs, certaines variables pouvaient prendre plusieurs modalités, nécessitant ainsi l'utilisation du `OneHotEncoder`. Cette technique a été appliquée pour transformer ces variables catégorielles en une représentation numérique adaptée à l'analyse. Le OneHotEncoder crée des variables binaires distinctes pour chaque modalité, permettant ainsi de capturer efficacement l'information contenue dans ces variables complexes. Néanmoins, l'inconvénient de cette technique est que nous nous retrouvons avec un nombre élevé de variables (42 pour être précis). Il sera certainement nécessaire d'effectuer une sélection de caractéristiques par la suite.
+En procédant à des ajustements dans notre analyse, nous avons entrepris une transformation des types de certaines variables. Initialement, les variables qui utilisaient les valeurs "No" et "Yes" ont été converties de manière à leur attribuer respectivement les valeurs numériques 0 et 1. Cette transformation simplifie la manipulation de ces variables dans des analyses statistiques. Par ailleurs, certaines variables pouvaient prendre plusieurs modalités, nécessitant ainsi l'utilisation du `OneHotEncoder`. Cette technique a été appliquée pour transformer ces variables catégorielles en une représentation numérique adaptée à l'analyse. Le OneHotEncoder créer des variables binaires distinctes pour chaque modalité, permettant ainsi de capturer efficacement l'information contenue dans ces variables complexes. Néanmoins, l'inconvénient de cette technique est que nous nous retrouvons avec un nombre élevé de variables (42 pour être précis). Il sera certainement nécessaire d'effectuer une sélection de caractéristiques par la suite.
 
 ### III.3 - Outliers
 
@@ -184,7 +184,7 @@ En raison des nombreuses variables catégorielles liées, nous décidons d’en 
 
 Avec ces variables, nous rajoutons nos 4 variables quantitatives et nous obtenons ainsi un dataframe constitué de 14 variables explicatives. 
 
-Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être intéressant d’avoir d’autres variables car elles pourraient potentiellement apporter une information supplémentaire et intéressante. Nous réalisons une méthode de sélection basée sur la variance à savoir la "Variance-based feature selection". Les caractéristiques qui ne changent pas beaucoup d’un échantillon à l’autre sont éliminées en supposant que ces caractéristiques n’apportent pas beaucoup d’informations. Nous obtenons les features disponibles dans le tableau 5.
+Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être intéressant d’avoir d’autres variables car elles pourraient potentiellement apporter une information différente et intéressante. Nous réalisons une méthode de sélection basée sur la variance à savoir la "Variance-based feature selection". Les caractéristiques qui ne changent pas beaucoup d’un échantillon à l’autre sont éliminées en supposant que ces caractéristiques n’apportent pas beaucoup d’informations. Nous obtenons les features disponibles dans le tableau 5.
 
 <p align="center">
   <b>Tableau 5 :</b> Features qualitatives sélectionnées (Variance-based feature selection)
@@ -195,6 +195,8 @@ Pour une seconde partie de l’analyse, nous pensons qu’il pourrait être int�
 |--------|-------------|---------------|------------|-----------|------|----------|-------|-------------|--------------|--------------|--------------|
 |   ✅   |      ✅      |      ✅       |      ✅      |     ✅    |  ✅  |    ✅     |   ✅  |      ✅      |      ✅       |      ✅       |      ✅       |
 </p>
+
+Nous obtenons un dataframe de 16 variables explicatives (en comptant les 4 variables quantitatives)
 
 ---
 
