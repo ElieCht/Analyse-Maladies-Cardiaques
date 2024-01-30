@@ -204,7 +204,7 @@ Nous obtenons un dataframe de 16 variables explicatives (en comptant les 4 varia
 
 ### IV.1 - Split du jeu de données
 
-Dans cette partie de l’analyse, nous avons divisé notre jeu de données en ensembles d’entraînement et de test. Cette étape est essentielle pour évaluer la capacité du modèle à généraliser à de nouvelles données non vues pendant l'entraînement. Ensuite, nous avons toujours ce problème de déséquilibre sur notre variable cible. Ce déséquilibre pourrait avoir un impact significatif sur la performance des modèles, car ils peuvent être biaisés vers la classe majoritaire (en l'occurrence, les personnes n'ayant pas eu de maladie cardiaque). En d'autres termes, le modèle pourrait montrer une préférence à anticiper que la personne interrogée n'a pas eu de maladie cardiaque, simplement parce que la majorité des exemples d'entraînement appartiennent à cette classe. Pour résoudre ce problème de déséquilibre de classes, on peut utiliser le suréchantillonnage (ajout d'instances de la classe minoritaire) et le sous-échantillonnage (réduction d'instances de la classe majoritaire) afin d'assurer une distribution plus équilibrée et d'améliorer la performance du modèle. Dans ce contexte, il peut être préférable d'effectuer un sous-échantillonnage. De plus, les personnes ayant fait une ou des maladies cardiaques présentent probablement des caractéristiques assez spécifiques. Nous effectuons ce ré échantillonnage uniquement sur les données sur le jeu d'entraînement afin de préserver l’intégrité des données de test intactes. Nous obtenons une distribution équitable (cf Figure ci-dessous).
+Dans cette partie de l’analyse, nous avons divisé notre jeu de données en ensembles d’entraînement et de test. Cette étape est essentielle pour évaluer la capacité du modèle à généraliser à de nouvelles données non vues pendant l'entraînement. Ensuite, nous avons toujours ce problème de déséquilibre sur notre variable cible. Ce déséquilibre pourrait avoir un impact significatif sur la performance des modèles, car ils peuvent être biaisés vers la classe majoritaire (en l'occurrence, les personnes n'ayant pas eu de maladie cardiaque). En d'autres termes, le modèle pourrait montrer une préférence à anticiper que la personne interrogée n'a pas eu de maladie cardiaque, simplement parce que la majorité des exemples d'entraînement appartiennent à cette classe. Pour résoudre ce problème de déséquilibre de classes, on peut utiliser le suréchantillonnage (ajout d'instances de la classe minoritaire) et le sous-échantillonnage (réduction d'instances de la classe majoritaire) afin d'assurer une distribution plus équilibrée et d'améliorer la performance du modèle. Dans ce contexte, il peut être préférable d'effectuer un sous-échantillonnage. En effet, les personnes ayant fait une ou des maladies cardiaques présentent probablement des caractéristiques assez spécifiques. Nous effectuons ce ré échantillonnage uniquement sur les données sur le jeu d'entraînement afin de préserver l’intégrité des données de test intactes. Nous obtenons une distribution équitable (cf Figure ci-dessous).
 
 <p align="center">
   <b>Figure 5 :</b> Répartition de la variable cible après ré-échantillonnage sur entraînement
@@ -225,7 +225,7 @@ Ensuite, nous avons standardisé nos variables. Ce processus permet de centrer e
 Désormais, nous allons procéder à différents modèles. L’objectif est de trouver le modèle le plus performant. Pour ce faire, nous avons utilisé 4 approches.
 - Un modèle en utilisant les 14 features de la Chi2 feature selection
 - Un modèle en utilisant 8 variables en partie issue de la feature selection (puisque nous avons vu qu’il y avait surtout 6 variables importantes dans notre premier meilleur modèle et nous avons supprimé les deux variables contenant des outliers)
-- Un modèle en utilisant 15 variables issues de la variance-based feature selection
+- Un modèle en utilisant 16 variables issues de la variance-based feature selection
 - Un modèle en utilisant 9 variables en faisant comme précédemment
 
 ### V.1 - Modèles utilisés 
@@ -265,7 +265,7 @@ Nous avons effectué quatre analyses différentes, où nous avons testé tous le
 </p>
 <div align="center">
   
-|  | Cas 1 : 14 variables | Cas 2 : 8 variables | Cas 3 : 15 variables | Cas 4 : 9 variables |
+|  | Cas 1 : 14 variables | Cas 2 : 8 variables | Cas 3 : 16 variables | Cas 4 : 9 variables |
 |------------------------|---------------------|---------------------|----------------------|---------------------|
 | Régression logistique | **0.6848** | **0.6731**  | **0.7081**   | 0.6786  |
 | Linear SVM            | 0.6836  | 0.6730  | 0.7077  | 0.6596  |
@@ -291,7 +291,7 @@ La première chose surprenante des résultats issus du Grid Search est que celui
 </p>
 <div align="center">
 
-| | Cas 1 : 14 variables | Cas 2 : 8 variables | Cas 3 : 15 variables | Cas 4 : 8 variables |
+| | Cas 1 : 14 variables | Cas 2 : 8 variables | Cas 3 : 16 variables | Cas 4 : 8 variables |
 |-----------|-----------|-----------|-----------|-----------|
 | Accuracy : Train   |    0.6848       |   0.6731        |  **0.7078**         |   0.6989        |
 | Accuracy : Test   |     0.6857      |    **0.7977**       |   0.7076        |  0.6727         |
@@ -300,7 +300,7 @@ La première chose surprenante des résultats issus du Grid Search est que celui
 
 </div>
 
-Le tableau 7 présente les performances de nos différentes cas. Le Cas 2 se démarque avec la meilleure performance sur l'ensemble de test, affichant une exactitude de 0.7977 et un score F1 de 0.2563, malgré l'utilisation d'un nombre limité de variables. Le Cas 3 suit de près avec des performances solides, utilisant un ensemble plus large de 15 variables. Les Cas 1 et 4 affichent des performances similaires, bien que légèrement inférieures aux deux premiers cas. En revanche, bien que le cas 2 affiche des performances remarquables sur l'ensemble de test, avec une exactitude de 79,77% et un score F1 de 25,63%, l'écart entre ces mesures et celles de l'ensemble d'entraînement (67,31% d'exactitude et 61,74% de score F1) suggère une possible adaptation excessive aux données d'entraînement. Cela peut indiquer que le modèle a appris des caractéristiques spécifiques aux données d'entraînement qui ne se généralisent pas bien à de nouvelles données, ce qui est caractéristique du surajustement. En revanche, bien que les autres cas puissent également présenter un léger surajustement, les écarts entre les performances d'entraînement et de test sont moins prononcés, indiquant une meilleure généralisation du modèle.
+Le tableau 7 présente les performances de nos différentes cas. Le Cas 2 se démarque avec la meilleure performance sur l'ensemble de test, affichant une exactitude de 0.7977 et un score F1 de 0.2563, malgré l'utilisation d'un nombre limité de variables. Le Cas 3 suit de près avec des performances solides, utilisant un ensemble plus large de 16 variables. Les Cas 1 et 4 affichent des performances similaires, bien que légèrement inférieures aux deux premiers cas. En revanche, bien que le cas 2 affiche des performances remarquables sur l'ensemble de test, avec une exactitude de 79,77% et un score F1 de 25,63%, l'écart entre ces mesures et celles de l'ensemble d'entraînement (67,31% d'exactitude et 61,74% de score F1) suggère une possible adaptation excessive aux données d'entraînement. Cela peut indiquer que le modèle a appris des caractéristiques spécifiques aux données d'entraînement qui ne se généralisent pas bien à de nouvelles données, ce qui est caractéristique du surajustement. En revanche, bien que les autres cas puissent également présenter un léger surajustement, les écarts entre les performances d'entraînement et de test sont moins prononcés, indiquant une meilleure généralisation du modèle.
 
 <p align="center">
   <b>Figure 6 :</b> Matrice de confusion des meilleurs modèles
@@ -332,6 +332,8 @@ Il peut être pertinent de s’intéresser aux variables les plus importantes de
 - Cas 3 : Il semble que les individus ayant une excellente ou une très bonne santé aient une probabilité plus faible d’avoir une maladie cardiaque. En revanche, le fait d’avoir des difficultés à marcher ou d’être blanc augmente cette probabilité.
 - Cas 4 : Les variables les plus importantes pour expliquer la prédiction de maladie cardiaque sont le fait d’être en excellente ou très bonne santé. Le genre, l’IMC et le fait de fumer semblent également être des variables importantes.
 
+Aucun résultat n'est contre-intuitif et paraissent tous logiques.
+
 ### V.5 - Réseau de neurones
 
 La dernière étape de notre étude consiste à mettre en place un réseau de neurones pour chacun des cas. Nous avons directement tenté un grid search. L’objectif est d’essayer de trouver un meilleur modèle que ceux précédents. 
@@ -347,11 +349,11 @@ La dernière étape de notre étude consiste à mettre en place un réseau de ne
 
 </div>
 
-En effet, les résultats sont meilleurs par rapport à tous les autres modèles testés. Pour le premier cas avec 14 variables, le modèle a obtenu une accuracy de 73.66% et un F1 score de 26.12%. Cette combinaison de score que le modèle parvient à classifier correctement près de 74% des individus. Cependant le F1 - Score assez faible suggère que le modèle peut avoir des difficultés en manquant certains cas positifs de maladies cardiaques tout en classant certains individus incorrectement comme porteurs de maladie cardiaques.
+En effet, les résultats sont meilleurs par rapport à tous les autres modèles testés. Pour le premier cas avec 14 variables, le modèle a obtenu une accuracy de 73.66% et un F1 score de 26.12%. Cette combinaison de score indique que le modèle parvient à classifier correctement près de 74% des individus. Cependant le F1 - Score assez faible suggère que le modèle peut avoir des difficultés en manquant certains cas positifs de maladies cardiaques tout en classant certains individus incorrectement comme porteurs de maladie cardiaques.
 
-Dans le deuxième cas, qui utilise seulement 8 variables, l'accuracy a augmenté à 79.77%, ce qui représente une amélioration par rapport au premier cas. Cependant, le F1 score reste similaire à 25.99%, ce qui signifie que le modèle parvient à bien identifier les cas positifs de maladie cardiaque par rapport au premier cas, mais il y a toujours des améliorations potentielles à réaliser.
+Dans le deuxième cas, qui utilise seulement 8 variables, l'accuracy a augmenté à 79.77%, ce qui représente une amélioration par rapport au premier cas. Cependant, le F1 score reste similaire à 25.99%, ce qui signifie que le modèle parvient à mieux identifier les cas positifs de maladie cardiaque par rapport au premier cas, mais il y a toujours des améliorations potentielles à réaliser.
 
-Pour le troisième cas, avec 15 variables, l'accuracy est de 70.42% et le F1 score est de 24.27%. Bien que ce modèle utilise plus de variables, il semble moins performant que le deuxième cas en termes d'accuracy et de F1 score. Cela peut indiquer que certaines variables supplémentaires n'ajoutent pas de valeur prédictive significative ou peuvent introduire du bruit dans le modèle.
+Pour le troisième cas, avec 16 variables, l'accuracy est de 70.42% et le F1 score est de 24.27%. Bien que ce modèle utilise plus de variables, il semble moins performant que le deuxième cas en termes d'accuracy et de F1 score. Cela peut indiquer que certaines variables supplémentaires n'ajoutent pas de valeur prédictive significative ou peuvent introduire du bruit dans le modèle.
 
 Enfin, dans le dernier cas avec 10 variables, l'accuracy est de 66.17% et le F1 score est de 22.36%. Ce modèle semble être le moins performant des quatre cas, ce qui suggère que la réduction du nombre de variables a eu un impact négatif sur sa capacité à prédire correctement les cas de maladie cardiaque.
 
@@ -370,7 +372,7 @@ Encore une fois, dans les quatre cas, le modèle présente une meilleure précis
 
 L’objectif de notre étude était d’effectuer des modèles capables de prédire si une personne était exposée à un risque de maladie cardiaque ou non et de savoir quelles caractéristiques sont importantes. La question que vous vous posez est “sommes-nous de bons médecins sachant détecter une maladie cardiaque ?”. Avant de répondre, nous avons exploré la base de données et effectué des modifications afin de pouvoir utiliser les données : modification du type des variables, détection et suppression des valeurs atypiques. Ensuite, nous nous sommes intéressés à la relation entre les variables et nous en sommes venus à la conclusion qu’il était nécessaire d’effectuer une feature selection en raison du nombre élevé de liens entre les variables. Nous en avons réalisé deux différentes : une basée sur le Chi2 et une autre sur la variance. Ces deux features selection nous ont conduit à réaliser 4 analyses différentes afin d’effectuer le meilleur modèle possible.
 
-Ensuite, après cette étape préliminaire mais nécessaire, nous avons pu répondre à la question. Pour ce faire, nous avons réalisé 11 modèles différents pour chacune de nos analyses. Les modèles de réseau de neurones semblent offrir des résultats supérieurs aux autres. Le cas numéro 2 à 8 variables semble être le meilleur en termes d’accuracy et le cas numéro 1 semble être le meilleur en termes de F1 - Score (pour les réseaux de neurones).  Ensuite, la régression logistique semble être le modèle qui est le plus performant pour nos données. Le cas 3 avec 15 variables est celui qui à la meilleure accuracy sur le jeu d'entraînement et le cas 2 avec 8 variables semble avoir la meilleure accuracy sur le jeu test. Ce résultat est plutôt satisfaisant puisqu’il dépasse nettement la performance aléatoire. Cette performance indique que le modèle est capable de distinguer les classes avec une précision supérieure à celle que l’on obtiendrait en devinant au hasard. Pour ce qui est de la métrique du F1 - Score, nos modèles ont des résultats corrects sur le jeu d’entraînement mais assez faibles sur le jeu test. Cela soulève des questions sur la capacité du modèle à prédire avec précision les cas de maladies cardiaques dans des situations réelles. En effet, ces résultats peuvent être un peu nuancés. En effet, tous nos modèles semblent prédire correctement les personnes n’ayant pas de maladies cardiaques mais ils sont moins précis pour détecter les cas où les personnes en ont une. 
+Ensuite, après cette étape préliminaire mais nécessaire, nous avons pu répondre à la question. Pour ce faire, nous avons réalisé 11 modèles différents pour chacune de nos analyses. Les modèles de réseau de neurones semblent offrir des résultats supérieurs aux autres. Le cas numéro 2 à 8 variables semble être le meilleur en termes d’accuracy et le cas numéro 1 semble être le meilleur en termes de F1 - Score (pour les réseaux de neurones).  Ensuite, la régression logistique semble être le modèle qui est le plus performant pour nos données. Le cas 3 avec 16 variables est celui qui à la meilleure accuracy sur le jeu d'entraînement et le cas 2 avec 8 variables semble avoir la meilleure accuracy sur le jeu test. Ce résultat est plutôt satisfaisant puisqu’il dépasse nettement la performance aléatoire. Cette performance indique que le modèle est capable de distinguer les classes avec une précision supérieure à celle que l’on obtiendrait en devinant au hasard. Pour ce qui est de la métrique du F1 - Score, nos modèles ont des résultats corrects sur le jeu d’entraînement mais assez faibles sur le jeu test. Cela soulève des questions sur la capacité du modèle à prédire avec précision les cas de maladies cardiaques dans des situations réelles. En effet, ces résultats peuvent être un peu nuancés. En effet, tous nos modèles semblent prédire correctement les personnes n’ayant pas de maladies cardiaques mais ils sont moins précis pour détecter les cas où les personnes en ont une. 
 
 De plus, certaines variables semblent diminuer la probabilité de faire une maladie cardiaque comme par exemple avoir un état de santé considéré comme excellent, très bon ou bon. En revanche, des variables semblent faire augmenter la probabilité de faire une maladie cardiaque comme par exemple avoir fait un AVC, avoir une maladie rénale, faire du diabète, avoir du mal à marcher ou encore avoir un état de santé considéré comme pauvre. D’autres variables semblent importantes mais nous ne pouvons pas interpréter le signe : les sexe ou encore l’IMC semble être importantes pour prédire les maladies cardiaques. En revanche, si vous avez des soupçons quant à votre risque de maladie cardiaque, je vous recommande vivement d'interrompre votre lecture de notre étude et de consulter immédiatement un médecin.
 
@@ -414,4 +416,36 @@ Statista, Répartition des premières causes de décès aux États-Unis en 2021,
 
 ---
 
+## Table des matières
+
+- [I - Introduction](#i---introduction)
+- [II - Analyse Exploratoire](#ii---analyse-exploratoire)
+  - [II.1 - Statistiques univariées](#ii1---statistiques-univariées)
+    - [II.1.1 - Target](#ii11---target)
+  - [II.2 - Statistiques bivariées](#ii2---statistiques-bivariées)
+  - [II.3 - Statistiques descriptives](#ii3---statistiques-descriptives)
+- [III - Prétraitement des données](#iii---prétraitement-des-données)
+  - [III.1 - Valeurs manquantes](#iii1---valeurs-manquantes)
+  - [III.2 - Type des variables](#iii2---type-des-variables)
+  - [III.3 - Outliers](#iii3---outliers)
+  - [III.4 - Relation entre les variables](#iii4---relation-entre-les-variables)
+    - [III.4.1 - Variables quantitatives](#iii41---variables-quantitatives)
+    - [III.4.2 - Variables qualitatives](#iii42---variables-qualitatives)
+    - [III.4.3 - Variables quantitives & qualitatives](#iii43---variables-quantitives--qualitatives)
+  - [III.5 - Feature Selection](#iii5---feature-selection)
+- [IV - Préparation des données](#iv---préparation-des-données)
+  - [IV.1 - Split du jeu de données](#iv1---split-du-jeu-de-données)
+  - [IV.2 - Standardisation](#iv2---standardisation)
+- [V - Modélisation](#v---modélisation)
+  - [V.1 - Modèles utilisés](#v1---modèles-utilisés)
+  - [V.2 - Meilleurs modèles](#v2---meilleurs-modèles)
+  - [V.3 - Exploration paramétrique](#v3---exploration-paramétrique)
+  - [V.4 - Importance des variables](#v4---importance-des-variables)
+  - [V.5 - Réseau de neurones](#v5---réseau-de-neurones)
+- [VI - Conclusion](#vi---conclusion)
+- [VII - Discussion](#vii---discussion)
+- [VIII - Annexe](#viii---annexe)
+- [Bibliographie](#bibliographie)
+
+---
 
